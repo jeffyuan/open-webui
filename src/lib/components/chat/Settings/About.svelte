@@ -6,6 +6,7 @@
 	import { compareVersion } from '$lib/utils';
 	import { onMount } from 'svelte';
 
+	import { _ } from "svelte-i18n";
 	let ollamaVersion = '';
 
 	let updateAvailable = null;
@@ -43,7 +44,7 @@
 		<div>
 			<div class=" mb-2.5 text-sm font-medium flex space-x-2 items-center">
 				<div>
-					{$WEBUI_NAME} Version
+					{$WEBUI_NAME} {$_("message.version")}
 				</div>
 			</div>
 			<div class="flex w-full justify-between items-center">
@@ -69,7 +70,7 @@
 							showChangelog.set(true);
 						}}
 					>
-						<div>See what's new</div>
+						<div>{$_("message.seeNew")}</div>
 					</button>
 				</div>
 
@@ -79,7 +80,7 @@
 						checkForVersionUpdates();
 					}}
 				>
-					Check for updates
+					{$_("btn.checkUpdates")}
 				</button>
 			</div>
 		</div>
@@ -88,7 +89,7 @@
 			<hr class=" dark:border-gray-700" />
 
 			<div>
-				<div class=" mb-2.5 text-sm font-medium">Ollama Version</div>
+				<div class=" mb-2.5 text-sm font-medium">{$_("message.ollamaVersion")}</div>
 				<div class="flex w-full">
 					<div class="flex-1 text-xs text-gray-700 dark:text-gray-200">
 						{ollamaVersion ?? 'N/A'}
@@ -123,7 +124,7 @@
 		</div>
 
 		<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
-			Created by <a
+			{$_("message.createdBy")} <a
 				class=" text-gray-500 dark:text-gray-300 font-medium"
 				href="https://github.com/tjbck"
 				target="_blank">Timothy J. Baek</a

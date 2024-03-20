@@ -84,7 +84,7 @@
 		titleAutoGenerateModel = settings.titleAutoGenerateModel ?? '';
 		titleGenerationPrompt =
 			settings.titleGenerationPrompt ??
-			`Create a concise, 3-5 word phrase as a header for the following query, strictly adhering to the 3-5 word limit and avoiding the use of the word 'title': {{prompt}}`;
+			$_("message.interfaceText") + ` 'title': {{prompt}}`;
 	});
 </script>
 
@@ -97,11 +97,11 @@
 >
 	<div class=" space-y-3 pr-1.5 overflow-y-scroll h-80">
 		<div>
-			<div class=" mb-1 text-sm font-medium">WebUI Add-ons</div>
+			<div class=" mb-1 text-sm font-medium">{$_("message.webUIAddOns")}</div>
 
 			<div>
 				<div class=" py-0.5 flex w-full justify-between">
-					<div class=" self-center text-xs font-medium">Title Auto-Generation</div>
+					<div class=" self-center text-xs font-medium">{$_("message.titleAutoGeneration")}</div>
 
 					<button
 						class="p-1 px-3 text-xs flex rounded transition"
@@ -111,9 +111,9 @@
 						type="button"
 					>
 						{#if titleAutoGenerate === true}
-							<span class="ml-2 self-center">On</span>
+							<span class="ml-2 self-center">{$_("btn.on")}</span>
 						{:else}
-							<span class="ml-2 self-center">Off</span>
+							<span class="ml-2 self-center">{$_("btn.off")}</span>
 						{/if}
 					</button>
 				</div>
@@ -121,7 +121,7 @@
 
 			<div>
 				<div class=" py-0.5 flex w-full justify-between">
-					<div class=" self-center text-xs font-medium">Response AutoCopy to Clipboard</div>
+					<div class=" self-center text-xs font-medium">{$_("message.responseAutoCopyClipboard")}</div>
 
 					<button
 						class="p-1 px-3 text-xs flex rounded transition"
@@ -131,9 +131,9 @@
 						type="button"
 					>
 						{#if responseAutoCopy === true}
-							<span class="ml-2 self-center">On</span>
+							<span class="ml-2 self-center">{$_("btn.on")}</span>
 						{:else}
-							<span class="ml-2 self-center">Off</span>
+							<span class="ml-2 self-center">{$_("btn.off")}</span>
 						{/if}
 					</button>
 				</div>
@@ -141,7 +141,7 @@
 
 			<div>
 				<div class=" py-0.5 flex w-full justify-between">
-					<div class=" self-center text-xs font-medium">Full Screen Mode</div>
+					<div class=" self-center text-xs font-medium">{$_("message.fullScreenMode")}</div>
 
 					<button
 						class="p-1 px-3 text-xs flex rounded transition"
@@ -151,9 +151,9 @@
 						type="button"
 					>
 						{#if fullScreenMode === true}
-							<span class="ml-2 self-center">On</span>
+							<span class="ml-2 self-center">{$_("btn.on")}</span>
 						{:else}
-							<span class="ml-2 self-center">Off</span>
+							<span class="ml-2 self-center">{$_("btn.off")}</span>
 						{/if}
 					</button>
 				</div>
@@ -162,7 +162,7 @@
 			<div>
 				<div class=" py-0.5 flex w-full justify-between">
 					<div class=" self-center text-xs font-medium">
-						Display the username instead of "You" in the Chat
+						{$_("message.changeYou")}
 					</div>
 
 					<button
@@ -173,9 +173,9 @@
 						type="button"
 					>
 						{#if showUsername === true}
-							<span class="ml-2 self-center">On</span>
+							<span class="ml-2 self-center">{$_("btn.on")}</span>
 						{:else}
-							<span class="ml-2 self-center">Off</span>
+							<span class="ml-2 self-center">{$_("btn.off")}</span>
 						{/if}
 					</button>
 				</div>
@@ -183,9 +183,8 @@
 		</div>
 
 		<hr class=" dark:border-gray-700" />
-
 		<div>
-			<div class=" mb-2.5 text-sm font-medium">Set Title Auto-Generation Model</div>
+			<div class=" mb-2.5 text-sm font-medium">{$_("message.setTitleAutoGenerationModel")}</div>
 			<div class="flex w-full">
 				<div class="flex-1 mr-2">
 					<select
@@ -193,7 +192,7 @@
 						bind:value={titleAutoGenerateModel}
 						placeholder="$_('message.selectAmodel')"
 					>
-						<option value="" selected>Current Model</option>
+						<option value="" selected>{$_("form.currentModelOption")}</option>
 						{#each $models as model}
 							{#if model.size != null}
 								<option value={model.name} class="bg-gray-100 dark:bg-gray-700">
@@ -205,7 +204,7 @@
 				</div>
 			</div>
 			<div class="mt-3 mr-2">
-				<div class=" mb-2.5 text-sm font-medium">Title Generation Prompt</div>
+				<div class=" mb-2.5 text-sm font-medium">{$_("message.titleGenerationPrompt")}</div>
 				<textarea
 					bind:value={titleGenerationPrompt}
 					class="w-full rounded-lg p-4 text-sm dark:text-gray-300 dark:bg-gray-850 outline-none resize-none"
@@ -219,7 +218,7 @@
 
 			<div class=" space-y-3 pr-1.5 overflow-y-scroll max-h-80">
 				<div class="flex w-full justify-between mb-2">
-					<div class=" self-center text-sm font-semibold">Default Prompt Suggestions</div>
+					<div class=" self-center text-sm font-semibold">{$_("message.defaultPromptSuggestions")}</div>
 
 					<button
 						class="p-1 px-3 text-xs flex rounded transition"
@@ -249,20 +248,20 @@
 								<div class="flex border-b dark:border-gray-600 w-full">
 									<input
 										class="px-3 py-1.5 text-xs w-full bg-transparent outline-none border-r dark:border-gray-600"
-										placeholder="Title (e.g. Tell me a fun fact)"
+										placeholder={$_("placeholder.title") + " (e.g. Tell me a fun fact)"}
 										bind:value={prompt.title[0]}
 									/>
 
 									<input
 										class="px-3 py-1.5 text-xs w-full bg-transparent outline-none border-r dark:border-gray-600"
-										placeholder="Subtitle (e.g. about the Roman Empire)"
+										placeholder={$_("placeholder.subtitle") + " (e.g. about the Roman Empire)"}
 										bind:value={prompt.title[1]}
 									/>
 								</div>
 
 								<input
 									class="px-3 py-1.5 text-xs w-full bg-transparent outline-none border-r dark:border-gray-600"
-									placeholder="Prompt (e.g. Tell me a fun fact about the Roman Empire)"
+									placeholder={$_("placeholder.prompt") + " (e.g. Tell me a fun fact about the Roman Empire)"}
 									bind:value={prompt.content}
 								/>
 							</div>
@@ -292,7 +291,7 @@
 
 				{#if promptSuggestions.length > 0}
 					<div class="text-xs text-left w-full mt-2">
-						Adjusting these settings will apply changes universally to all users.
+						{$_("message.interfaceMessage")}
 					</div>
 				{/if}
 			</div>
@@ -304,7 +303,7 @@
 			class=" px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-gray-100 transition rounded-lg"
 			type="submit"
 		>
-			Save
+			{$_("btn.saveModel")}
 		</button>
 	</div>
 </form>
