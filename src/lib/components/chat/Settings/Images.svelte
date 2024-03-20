@@ -63,7 +63,7 @@
 			await getModels();
 
 			if (models) {
-				toast.success($_("alert.serverConnectionVerified"));
+				toast.success('Server connection verified');
 			}
 		} else {
 			AUTOMATIC1111_BASE_URL = await getAUTOMATIC1111Url(localStorage.token);
@@ -138,32 +138,31 @@
 >
 	<div class=" space-y-3 pr-1.5 overflow-y-scroll max-h-[20.5rem]">
 		<div>
-			<div class=" mb-1 text-sm font-medium">{$_("message.imageSettings")}</div>
+			<div class=" mb-1 text-sm font-medium">Image Settings</div>
 
 			<div class=" py-0.5 flex w-full justify-between">
-				<div class=" self-center text-xs font-medium">{$_("message.imageGenerationEngine")}</div>
+				<div class=" self-center text-xs font-medium">Image Generation Engine</div>
 				<div class="flex items-center relative">
 					<select
 						class="w-fit pr-8 rounded px-2 p-1 text-xs bg-transparent outline-none text-right"
 						bind:value={imageGenerationEngine}
-						placeholder={$_("placeholder.selectMode")}
+						placeholder="Select a mode"
 						on:change={async () => {
 							await updateImageGeneration();
 						}}
 					>
-						<option value="">{$_("form.defaultAutomatic")}</option>
-						<option value="openai">{$_("form.openAI") + " (Dall-E)"}</option>
+						<option value="">Default (Automatic1111)</option>
+						<option value="openai">Open AI (Dall-E)</option>
 					</select>
 				</div>
 			</div>
 
 			<div>
 				<div class=" py-0.5 flex w-full justify-between">
-					<div class=" self-center text-xs font-medium">{$_("message.imageGenerationExperimental")}</div>
+					<div class=" self-center text-xs font-medium">Image Generation (Experimental)</div>
 
 					<button
 						class="p-1 px-3 text-xs flex rounded transition"
-
 						on:click={() => {
 							if (imageGenerationEngine === '' && AUTOMATIC1111_BASE_URL === '') {
 								toast.error('AUTOMATIC1111 Base URL is required.');
@@ -180,9 +179,9 @@
 						type="button"
 					>
 						{#if enableImageGeneration === true}
-							<span class="ml-2 self-center">{$_("btn.on")}</span>
+							<span class="ml-2 self-center">On</span>
 						{:else}
-							<span class="ml-2 self-center">{$_("btn.off")}</span>
+							<span class="ml-2 self-center">Off</span>
 						{/if}
 					</button>
 				</div>
@@ -191,12 +190,12 @@
 		<hr class=" dark:border-gray-700" />
 
 		{#if imageGenerationEngine === ''}
-			<div class=" mb-2.5 text-sm font-medium">{$_("message.automatic1111BaseUrl")}</div>
+			<div class=" mb-2.5 text-sm font-medium">AUTOMATIC1111 Base URL</div>
 			<div class="flex w-full">
 				<div class="flex-1 mr-2">
 					<input
 						class="w-full rounded-lg py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-850 outline-none"
-						placeholder={$_("placeholder.enterURL") + " (e.g. http://127.0.0.1:7860/)"}
+						placeholder="Enter URL (e.g. http://127.0.0.1:7860/)"
 						bind:value={AUTOMATIC1111_BASE_URL}
 					/>
 				</div>
@@ -235,12 +234,12 @@
 				</a>
 			</div>
 		{:else if imageGenerationEngine === 'openai'}
-			<div class=" mb-2.5 text-sm font-medium">{$_("message.openAIApiKey")}</div>
+			<div class=" mb-2.5 text-sm font-medium">OpenAI API Key</div>
 			<div class="flex w-full">
 				<div class="flex-1 mr-2">
 					<input
 						class="w-full rounded-lg py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-850 outline-none"
-						placeholder={$_("placeholder.enterApiKey")}
+						placeholder="Enter API Key"
 						bind:value={OPENAI_API_KEY}
 					/>
 				</div>
@@ -251,7 +250,7 @@
 			<hr class=" dark:border-gray-700" />
 
 			<div>
-				<div class=" mb-2.5 text-sm font-medium">{$_("message.setDefaultModel")}</div>
+				<div class=" mb-2.5 text-sm font-medium">Set Default Model</div>
 				<div class="flex w-full">
 					<div class="flex-1 mr-2">
 						<select
@@ -271,12 +270,12 @@
 			</div>
 
 			<div>
-				<div class=" mb-2.5 text-sm font-medium">{$_("message.setImageSize")}</div>
+				<div class=" mb-2.5 text-sm font-medium">Set Image Size</div>
 				<div class="flex w-full">
 					<div class="flex-1 mr-2">
 						<input
 							class="w-full rounded-lg py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-850 outline-none"
-							placeholder={$_("placeholder.enterImageSize") + " (e.g. 512x512)"}
+							placeholder="Enter Image Size (e.g. 512x512)"
 							bind:value={imageSize}
 						/>
 					</div>
@@ -284,12 +283,12 @@
 			</div>
 
 			<div>
-				<div class=" mb-2.5 text-sm font-medium">{$_("message.setSteps")}</div>
+				<div class=" mb-2.5 text-sm font-medium">Set Steps</div>
 				<div class="flex w-full">
 					<div class="flex-1 mr-2">
 						<input
 							class="w-full rounded-lg py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-850 outline-none"
-							placeholder={$_("placeholder.enterNumberSteps") + " (e.g. 50)"}
+							placeholder="Enter Number of Steps (e.g. 50)"
 							bind:value={steps}
 						/>
 					</div>
@@ -306,7 +305,7 @@
 			type="submit"
 			disabled={loading}
 		>
-			{$_("btn.saveModel")}
+			Save
 
 			{#if loading}
 				<div class="ml-2 self-center">

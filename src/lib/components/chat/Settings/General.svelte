@@ -3,9 +3,10 @@
 	import { createEventDispatcher, onMount } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	import { _ } from "svelte-i18n";
+	import { models, user } from '$lib/stores';
 
 	import AdvancedParams from './Advanced/AdvancedParams.svelte';
+
 	export let saveSettings: Function;
 	export let getModels: Function;
 
@@ -85,10 +86,10 @@
 <div class="flex flex-col h-full justify-between text-sm">
 	<div class="  pr-1.5 overflow-y-scroll max-h-[20.5rem]">
 		<div class="">
-			<div class=" mb-1 text-sm font-medium">{$_("message.webUISettings")}</div>
+			<div class=" mb-1 text-sm font-medium">WebUI Settings</div>
 
 			<div class=" py-0.5 flex w-full justify-between">
-				<div class=" self-center text-xs font-medium">{$_("message.theme")}</div>
+				<div class=" self-center text-xs font-medium">Theme</div>
 				<div class="flex items-center relative">
 					<div class=" absolute right-16">
 						{#if theme === 'dark'}
@@ -121,7 +122,7 @@
 					<select
 						class="w-fit pr-8 rounded py-2 px-2 text-xs bg-transparent outline-none text-right"
 						bind:value={theme}
-						placeholder={$_("placeholder.selectTheme")}
+						placeholder="Select a theme"
 						on:change={(e) => {
 							localStorage.theme = theme;
 
@@ -140,17 +141,17 @@
 							console.log(theme);
 						}}
 					>
-						<option value="dark">{$_("form.optionDark")}</option>
-						<option value="light">{$_("form.optionLight")}</option>
-						<option value="rose-pine dark">{$_("form.optionRosePine")}</option>
-						<option value="rose-pine-dawn light">{$_("form.optionRosePineDawn")}</option>
+						<option value="dark">Dark</option>
+						<option value="light">Light</option>
+						<option value="rose-pine dark">Rosé Pine</option>
+						<option value="rose-pine-dawn light">Rosé Pine Dawn</option>
 					</select>
 				</div>
 			</div>
 
 			<div>
 				<div class=" py-0.5 flex w-full justify-between">
-					<div class=" self-center text-xs font-medium">{$_("message.notification")}</div>
+					<div class=" self-center text-xs font-medium">Notification</div>
 
 					<button
 						class="p-1 px-3 text-xs flex rounded transition"
@@ -160,9 +161,9 @@
 						type="button"
 					>
 						{#if notificationEnabled === true}
-							<span class="ml-2 self-center">{$_("btn.on")}</span>
+							<span class="ml-2 self-center">On</span>
 						{:else}
-							<span class="ml-2 self-center">{$_("btn.off")}</span>
+							<span class="ml-2 self-center">Off</span>
 						{/if}
 					</button>
 				</div>
@@ -172,7 +173,7 @@
 		<hr class=" dark:border-gray-700 my-3" />
 
 		<div>
-			<div class=" my-2.5 text-sm font-medium">{$_("message.systemPrompt")}</div>
+			<div class=" my-2.5 text-sm font-medium">System Prompt</div>
 			<textarea
 				bind:value={system}
 				class="w-full rounded-lg p-4 text-sm dark:text-gray-300 dark:bg-gray-850 outline-none resize-none"
@@ -182,13 +183,13 @@
 
 		<div class="mt-2 space-y-3 pr-1.5">
 			<div class="flex justify-between items-center text-sm">
-				<div class="  font-medium">{$_("message.advancedParameters")}</div>
+				<div class="  font-medium">Advanced Parameters</div>
 				<button
 					class=" text-xs font-medium text-gray-500"
 					type="button"
 					on:click={() => {
 						showAdvanced = !showAdvanced;
-					}}>{showAdvanced ? $_("btn.hide") : $_("btn.show")}</button
+					}}>{showAdvanced ? 'Hide' : 'Show'}</button
 				>
 			</div>
 
@@ -198,7 +199,7 @@
 
 				<div class=" py-1 w-full justify-between">
 					<div class="flex w-full justify-between">
-						<div class=" self-center text-xs font-medium">{$_("message.keepAlive")}</div>
+						<div class=" self-center text-xs font-medium">Keep Alive</div>
 
 						<button
 							class="p-1 px-3 text-xs flex rounded transition"
@@ -208,9 +209,9 @@
 							}}
 						>
 							{#if keepAlive === null}
-								<span class="ml-2 self-center"> {$_("btn.default")} </span>
+								<span class="ml-2 self-center"> Default </span>
 							{:else}
-								<span class="ml-2 self-center"> {$_("btn.custom")} </span>
+								<span class="ml-2 self-center"> Custom </span>
 							{/if}
 						</button>
 					</div>
@@ -229,7 +230,7 @@
 
 				<div>
 					<div class=" py-1 flex w-full justify-between">
-						<div class=" self-center text-sm font-medium">{$_("message.requestMode")}</div>
+						<div class=" self-center text-sm font-medium">Request Mode</div>
 
 						<button
 							class="p-1 px-3 text-xs flex rounded transition"
@@ -238,7 +239,7 @@
 							}}
 						>
 							{#if requestFormat === ''}
-								<span class="ml-2 self-center"> {$_("btn.default")} </span>
+								<span class="ml-2 self-center"> Default </span>
 							{:else if requestFormat === 'json'}
 								<!-- <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -250,7 +251,7 @@
                                 d="M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6zM15.657 5.404a.75.75 0 10-1.06-1.06l-1.061 1.06a.75.75 0 001.06 1.06l1.06-1.06zM6.464 14.596a.75.75 0 10-1.06-1.06l-1.06 1.06a.75.75 0 001.06 1.06l1.06-1.06zM18 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0118 10zM5 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 015 10zM14.596 15.657a.75.75 0 001.06-1.06l-1.06-1.061a.75.75 0 10-1.06 1.06l1.06 1.06zM5.404 6.464a.75.75 0 001.06-1.06l-1.06-1.06a.75.75 0 10-1.061 1.06l1.06 1.06z"
                             />
                         </svg> -->
-								<span class="ml-2 self-center"> {$_("btn.json")} </span>
+								<span class="ml-2 self-center"> JSON </span>
 							{/if}
 						</button>
 					</div>
@@ -285,7 +286,7 @@
 				dispatch('save');
 			}}
 		>
-			{$_("btn.saveModel")}
+			Save
 		</button>
 	</div>
 </div>

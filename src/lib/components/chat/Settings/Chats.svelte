@@ -16,7 +16,6 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { toast } from 'svelte-sonner';
-	import { _ } from "svelte-i18n";
 
 	export let saveSettings: Function;
 	// Chats
@@ -106,7 +105,7 @@
 			class="flex flex-col justify-between rounded-md items-center py-2 px-3.5 w-full transition"
 		>
 			<div class="flex w-full justify-between">
-				<div class=" self-center text-sm font-medium">{$_("message.chatHistory")}</div>
+				<div class=" self-center text-sm font-medium">Chat History</div>
 
 				<button
 					class="p-1 px-3 text-xs flex rounded transition"
@@ -130,7 +129,7 @@
 							/>
 						</svg>
 
-						<span class="ml-2 self-center"> {$_("btn.on")} </span>
+						<span class="ml-2 self-center"> On </span>
 					{:else}
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -148,13 +147,13 @@
 							/>
 						</svg>
 
-						<span class="ml-2 self-center">{$_("btn.off")}</span>
+						<span class="ml-2 self-center">Off</span>
 					{/if}
 				</button>
 			</div>
 
 			<div class="text-xs text-left w-full font-medium mt-0.5">
-				{$_("message.chatMessage")}
+				This setting does not sync across browsers or devices.
 			</div>
 		</div>
 
@@ -189,7 +188,7 @@
 						/>
 					</svg>
 				</div>
-				<div class=" self-center text-sm font-medium">{$_("message.import") + " " + $_("message.chats")}</div>
+				<div class=" self-center text-sm font-medium">Import Chats</div>
 			</button>
 			<button
 				class=" flex rounded-md py-2 px-3.5 w-full hover:bg-gray-200 dark:hover:bg-gray-800 transition"
@@ -211,7 +210,7 @@
 						/>
 					</svg>
 				</div>
-				<div class=" self-center text-sm font-medium">{$_("message.export") + " " + $_("message.chats")}</div>
+				<div class=" self-center text-sm font-medium">Export Chats</div>
 			</button>
 		</div>
 
@@ -233,7 +232,7 @@
 							clip-rule="evenodd"
 						/>
 					</svg>
-					<span>{$_("message.confirmSure")}</span>
+					<span>Are you sure?</span>
 				</div>
 
 				<div class="flex space-x-1.5 items-center">
@@ -297,7 +296,7 @@
 						/>
 					</svg>
 				</div>
-				<div class=" self-center text-sm font-medium">{$_("message.delete") + " " + $_("message.chats")}</div>
+				<div class=" self-center text-sm font-medium">Delete Chats</div>
 			</button>
 		{/if}
 
@@ -325,7 +324,7 @@
 						/>
 					</svg>
 				</div>
-				<div class=" self-center text-sm font-medium">{$_("message.exportAllChats")}</div>
+				<div class=" self-center text-sm font-medium">Export All Chats (All Users)</div>
 			</button>
 
 			<hr class=" dark:border-gray-700" />
@@ -357,7 +356,7 @@
 						/>
 					</svg>
 				</div>
-				<div class=" self-center text-sm font-medium">{$_("message.reset") + $_("message.vectorStorage")}</div>
+				<div class=" self-center text-sm font-medium">Reset Vector Storage</div>
 			</button>
 		{/if}
 	</div>

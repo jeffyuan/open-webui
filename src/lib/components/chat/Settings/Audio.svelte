@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import { _ } from "svelte-i18n";
 	import { toast } from 'svelte-sonner';
 	const dispatch = createEventDispatcher();
 
@@ -102,15 +101,15 @@
 >
 	<div class=" space-y-3 pr-1.5 overflow-y-scroll max-h-80">
 		<div>
-			<div class=" mb-1 text-sm font-medium">{$_("message.sttSettings")}</div>
+			<div class=" mb-1 text-sm font-medium">STT Settings</div>
 
 			<div class=" py-0.5 flex w-full justify-between">
-				<div class=" self-center text-xs font-medium">{$_("message.speechTextEngine")}</div>
+				<div class=" self-center text-xs font-medium">Speech-to-Text Engine</div>
 				<div class="flex items-center relative">
 					<select
 						class="w-fit pr-8 rounded px-2 p-1 text-xs bg-transparent outline-none text-right"
 						bind:value={STTEngine}
-						placeholder={$_("placeholder.selectMode")}
+						placeholder="Select a mode"
 						on:change={(e) => {
 							if (e.target.value !== '') {
 								navigator.mediaDevices.getUserMedia({ audio: true }).catch(function (err) {
@@ -120,14 +119,14 @@
 							}
 						}}
 					>
-						<option value="">{$_("form.default")} (Web API)</option>
-						<option value="whisper-local">{$_("form.whisper")} (Local)</option>
+						<option value="">Default (Web API)</option>
+						<option value="whisper-local">Whisper (Local)</option>
 					</select>
 				</div>
 			</div>
 
 			<div class=" py-0.5 flex w-full justify-between">
-				<div class=" self-center text-xs font-medium">{$_("message.conversationMode")}</div>
+				<div class=" self-center text-xs font-medium">Conversation Mode</div>
 
 				<button
 					class="p-1 px-3 text-xs flex rounded transition"
@@ -137,15 +136,15 @@
 					type="button"
 				>
 					{#if conversationMode === true}
-						<span class="ml-2 self-center">{$_("btn.on")}</span>
+						<span class="ml-2 self-center">On</span>
 					{:else}
-						<span class="ml-2 self-center">{$_("btn.off")}</span>
+						<span class="ml-2 self-center">Off</span>
 					{/if}
 				</button>
 			</div>
 
 			<div class=" py-0.5 flex w-full justify-between">
-				<div class=" self-center text-xs font-medium">{$_("message.autoSend")}</div>
+				<div class=" self-center text-xs font-medium">Auto-send input after 3 sec.</div>
 
 				<button
 					class="p-1 px-3 text-xs flex rounded transition"
@@ -155,24 +154,24 @@
 					type="button"
 				>
 					{#if speechAutoSend === true}
-						<span class="ml-2 self-center">{$_("btn.on")}</span>
+						<span class="ml-2 self-center">On</span>
 					{:else}
-						<span class="ml-2 self-center">{$_("btn.off")}</span>
+						<span class="ml-2 self-center">Off</span>
 					{/if}
 				</button>
 			</div>
 		</div>
 
 		<div>
-			<div class=" mb-1 text-sm font-medium">TTS {$_("message.settings")}</div>
+			<div class=" mb-1 text-sm font-medium">TTS Settings</div>
 
 			<div class=" py-0.5 flex w-full justify-between">
-				<div class=" self-center text-xs font-medium">{$_("message.textSpeechEngine")}</div>
+				<div class=" self-center text-xs font-medium">Text-to-Speech Engine</div>
 				<div class="flex items-center relative">
 					<select
 						class="w-fit pr-8 rounded px-2 p-1 text-xs bg-transparent outline-none text-right"
 						bind:value={TTSEngine}
-						placeholder={$_("placehoder.selectMode")}
+						placeholder="Select a mode"
 						on:change={(e) => {
 							if (e.target.value === 'openai') {
 								getOpenAIVoices();
@@ -183,14 +182,14 @@
 							}
 						}}
 					>
-						<option value="">{$_("form.default")} (Web API)</option>
-						<option value="openai">{$_("form.openAI")}</option>
+						<option value="">Default (Web API)</option>
+						<option value="openai">Open AI</option>
 					</select>
 				</div>
 			</div>
 
 			<div class=" py-0.5 flex w-full justify-between">
-				<div class=" self-center text-xs font-medium">{$_("message.autoPlaybackResponse")}</div>
+				<div class=" self-center text-xs font-medium">Auto-playback response</div>
 
 				<button
 					class="p-1 px-3 text-xs flex rounded transition"
@@ -200,9 +199,9 @@
 					type="button"
 				>
 					{#if responseAutoPlayback === true}
-						<span class="ml-2 self-center">{$_("btn.on")}</span>
+						<span class="ml-2 self-center">On</span>
 					{:else}
-						<span class="ml-2 self-center">{$_("btn.off")}</span>
+						<span class="ml-2 self-center">Off</span>
 					{/if}
 				</button>
 			</div>
@@ -212,13 +211,13 @@
 
 		{#if TTSEngine === ''}
 			<div>
-				<div class=" mb-2.5 text-sm font-medium">{$_("message.setVoice")}</div>
+				<div class=" mb-2.5 text-sm font-medium">Set Voice</div>
 				<div class="flex w-full">
 					<div class="flex-1">
 						<select
 							class="w-full rounded py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-800 outline-none"
 							bind:value={speaker}
-							placeholder={$_("placeholder.selectVoice")}
+							placeholder="Select a voice"
 						>
 							<option value="" selected>Default</option>
 							{#each voices.filter((v) => v.localService === true) as voice}
@@ -231,13 +230,13 @@
 			</div>
 		{:else if TTSEngine === 'openai'}
 			<div>
-				<div class=" mb-2.5 text-sm font-medium">{$_("message.setVoice")}</div>
+				<div class=" mb-2.5 text-sm font-medium">Set Voice</div>
 				<div class="flex w-full">
 					<div class="flex-1">
 						<select
 							class="w-full rounded py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-800 outline-none"
 							bind:value={speaker}
-							placeholder={$_("placeholder.selectVoice")}
+							placeholder="Select a voice"
 						>
 							{#each voices as voice}
 								<option value={voice.name} class="bg-gray-100 dark:bg-gray-700">{voice.name}</option
@@ -255,7 +254,7 @@
 			class=" px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-gray-100 transition rounded-lg"
 			type="submit"
 		>
-			{$_("btn.saveModel")}
+			Save
 		</button>
 	</div>
 </form>

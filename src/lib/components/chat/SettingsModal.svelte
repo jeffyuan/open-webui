@@ -17,8 +17,6 @@
 	import Connections from './Settings/Connections.svelte';
 	import Images from './Settings/Images.svelte';
 
-	import { _ } from 'svelte-i18n';
-
 	export let show = false;
 
 	const saveSettings = async (updated) => {
@@ -108,7 +106,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">{$_("btn.general")}</div>
+					<div class=" self-center">General</div>
 				</button>
 
 				{#if $user?.role === 'admin'}
@@ -133,7 +131,7 @@
 								/>
 							</svg>
 						</div>
-						<div class=" self-center">{$_("btn.connections")}</div>
+						<div class=" self-center">Connections</div>
 					</button>
 
 					<button
@@ -159,7 +157,7 @@
 								/>
 							</svg>
 						</div>
-						<div class=" self-center">{$_("btn.models")}</div>
+						<div class=" self-center">Models</div>
 					</button>
 				{/if}
 
@@ -186,7 +184,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">{$_("btn.interface")}</div>
+					<div class=" self-center">Interface</div>
 				</button>
 
 				<button
@@ -213,7 +211,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">{$_("btn.audio")}</div>
+					<div class=" self-center">Audio</div>
 				</button>
 
 				{#if $user.role === 'admin'}
@@ -240,7 +238,7 @@
 								/>
 							</svg>
 						</div>
-						<div class=" self-center">{$_("btn.images")}</div>
+						<div class=" self-center">Images</div>
 					</button>
 				{/if}
 
@@ -267,7 +265,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">{$_("btn.chats")}</div>
+					<div class=" self-center">Chats</div>
 				</button>
 
 				<button
@@ -293,7 +291,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">{$_("btn.account")}</div>
+					<div class=" self-center">Account</div>
 				</button>
 
 				<button
@@ -319,7 +317,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">{$_("btn.about")}</div>
+					<div class=" self-center">About</div>
 				</button>
 			</div>
 			<div class="flex-1 md:min-h-[380px]">
@@ -328,7 +326,7 @@
 						{getModels}
 						{saveSettings}
 						on:save={() => {
-							toast.success($_("alert.settingsSuccess"));
+							toast.success('Settings saved successfully!');
 						}}
 					/>
 				{:else if selectedTab === 'models'}
@@ -337,28 +335,28 @@
 					<Connections
 						{getModels}
 						on:save={() => {
-							toast.success($_("alert.settingsSuccess"));
+							toast.success('Settings saved successfully!');
 						}}
 					/>
 				{:else if selectedTab === 'interface'}
 					<Interface
 						{saveSettings}
 						on:save={() => {
-							toast.success($_("alert.settingsSuccess"));
+							toast.success('Settings saved successfully!');
 						}}
 					/>
 				{:else if selectedTab === 'audio'}
 					<Audio
 						{saveSettings}
 						on:save={() => {
-							toast.success($_("alert.settingsSuccess"));
+							toast.success('Settings saved successfully!');
 						}}
 					/>
 				{:else if selectedTab === 'images'}
 					<Images
 						{saveSettings}
 						on:save={() => {
-							toast.success($_("alert.settingsSuccess"));
+							toast.success('Settings saved successfully!');
 						}}
 					/>
 				{:else if selectedTab === 'chats'}
@@ -366,7 +364,7 @@
 				{:else if selectedTab === 'account'}
 					<Account
 						saveHandler={() => {
-							toast.success($_("alert.settingsSuccess"));
+							toast.success('Settings saved successfully!');
 						}}
 					/>
 				{:else if selectedTab === 'about'}

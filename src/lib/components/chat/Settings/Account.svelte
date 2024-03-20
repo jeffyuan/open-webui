@@ -8,7 +8,6 @@
 	import UpdatePassword from './Account/UpdatePassword.svelte';
 	import { getGravatarUrl } from '$lib/apis/utils';
 	import { copyToClipboard } from '$lib/utils';
-	import { _ } from "svelte-i18n";
 
 	export let saveHandler: Function;
 
@@ -102,7 +101,7 @@
 			}}
 		/>
 
-		<div class=" mb-2.5 text-sm font-medium">{$_("message.profile")}</div>
+		<div class=" mb-2.5 text-sm font-medium">Profile</div>
 
 		<div class="flex space-x-5">
 			<div class="flex flex-col">
@@ -150,7 +149,7 @@
 
 			<div class="flex-1">
 				<div class="flex flex-col w-full">
-					<div class=" mb-1 text-xs text-gray-500">{$_("label.name")}</div>
+					<div class=" mb-1 text-xs text-gray-500">Name</div>
 
 					<div class="flex-1">
 						<input
@@ -171,7 +170,7 @@
 
 		<div class=" w-full justify-between">
 			<div class="flex w-full justify-between">
-				<div class=" self-center text-xs font-medium">{$_("label.token")}</div>
+				<div class=" self-center text-xs font-medium">JWT Token</div>
 			</div>
 
 			<div class="flex mt-2">

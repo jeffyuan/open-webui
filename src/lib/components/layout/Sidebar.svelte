@@ -174,7 +174,7 @@
 					</div>
 
 					<div class="flex self-center">
-						<div class=" self-center font-medium text-sm">{$_("menu.modelfiles")}</div>
+						<div class=" self-center font-medium text-sm">Modelfiles</div>
 					</div>
 				</a>
 			</div>
@@ -202,7 +202,7 @@
 					</div>
 
 					<div class="flex self-center">
-						<div class=" self-center font-medium text-sm">{$_("menu.prompts")}</div>
+						<div class=" self-center font-medium text-sm">{$_('prompts.menuName')}</div>
 					</div>
 				</a>
 			</div>
@@ -230,7 +230,7 @@
 					</div>
 
 					<div class="flex self-center">
-						<div class=" self-center font-medium text-sm">{$_("menu.documents")}</div>
+						<div class=" self-center font-medium text-sm">{$_('documents.title')}</div>
 					</div>
 				</a>
 			</div>
@@ -271,7 +271,7 @@
 									/>
 								</svg>
 
-								<div>{$_("message.enableChatHistory")}</div>
+								<div>Enable Chat History</div>
 							</button>
 						</div>
 					</div>
@@ -297,7 +297,7 @@
 
 					<input
 						class="w-full rounded-r-xl py-1.5 pl-2.5 pr-4 text-sm text-gray-300 bg-gray-950 outline-none"
-						placeholder={$_("placeholder.search")}
+						placeholder={$_('sidebar.search')}
 						bind:value={search}
 						on:focus={() => {
 							enrichChatsWithContent($chats);
@@ -603,7 +603,7 @@
 												/>
 											</svg>
 										</div>
-										<div class=" self-center font-medium">{$_("message.adminPanel")}</div>
+										<div class=" self-center font-medium">Admin Panel</div>
 									</button>
 
 									<button
@@ -629,7 +629,7 @@
 												/>
 											</svg>
 										</div>
-										<div class=" self-center font-medium">{$_("message.playground")}</div>
+										<div class=" self-center font-medium">Playground</div>
 									</button>
 								{/if}
 
@@ -661,7 +661,7 @@
 											/>
 										</svg>
 									</div>
-									<div class=" self-center font-medium">{$_("btn.settings")}</div>
+									<div class=" self-center font-medium">Settings</div>
 								</button>
 							</div>
 
@@ -695,7 +695,7 @@
 											/>
 										</svg>
 									</div>
-									<div class=" self-center font-medium">{$_("btn.signOut")}</div>
+									<div class=" self-center font-medium">Sign Out</div>
 								</button>
 							</div>
 						</div>

@@ -4,6 +4,7 @@
 	import { splitStream } from '$lib/utils';
 	import { tick } from 'svelte';
 	import { toast } from 'svelte-sonner';
+
 	import { _ } from 'svelte-i18n';
 
 	export let prompt = '';
@@ -114,7 +115,7 @@
 					toast.error(error.error);
 				}
 			} else {
-				toast.error($_("alert.connectError"));
+				toast.error($_('error.serverError'));
 			}
 		}
 

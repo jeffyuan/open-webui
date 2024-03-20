@@ -11,7 +11,6 @@
 		updateOpenAIUrls
 	} from '$lib/apis/openai';
 	import { toast } from 'svelte-sonner';
-	import { _ } from "svelte-i18n";
 
 	export let getModels: Function;
 
@@ -68,13 +67,13 @@
 		<div class=" space-y-3">
 			<div class="mt-2 space-y-2 pr-1.5">
 				<div class="flex justify-between items-center text-sm">
-					<div class="  font-medium">{$_("message.openAIApi")}</div>
+					<div class="  font-medium">OpenAI API</div>
 					<button
 						class=" text-xs font-medium text-gray-500"
 						type="button"
 						on:click={() => {
 							showOpenAI = !showOpenAI;
-						}}>{showOpenAI ? $_("btn.hide") : $_("btn.show")}</button
+						}}>{showOpenAI ? 'Hide' : 'Show'}</button
 					>
 				</div>
 
@@ -85,7 +84,7 @@
 								<div class="flex-1">
 									<input
 										class="w-full rounded-lg py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-850 outline-none"
-										placeholder={$_("placeholder.apiBaseURL")}
+										placeholder="API Base URL"
 										bind:value={url}
 										autocomplete="off"
 									/>
@@ -94,7 +93,7 @@
 								<div class="flex-1">
 									<input
 										class="w-full rounded-lg py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-850 outline-none"
-										placeholder={$_("placeholder.apiKey")}
+										placeholder="API Key"
 										bind:value={OPENAI_API_KEYS[idx]}
 										autocomplete="off"
 									/>
@@ -144,7 +143,7 @@
 								</div>
 							</div>
 							<div class=" mb-1 text-xs text-gray-400 dark:text-gray-500">
-								{$_("message.connectionsRequests")}<span class=" text-gray-200">'{url}/models'</span>
+								WebUI will make requests to <span class=" text-gray-200">'{url}/models'</span>
 							</div>
 						{/each}
 					</div>
@@ -155,14 +154,14 @@
 		<hr class=" dark:border-gray-700" />
 
 		<div>
-			<div class=" mb-2.5 text-sm font-medium">{$_("message.ollamaBaseURL")}</div>
+			<div class=" mb-2.5 text-sm font-medium">Ollama Base URL</div>
 			<div class="flex w-full gap-1.5">
 				<div class="flex-1 flex flex-col gap-2">
 					{#each OLLAMA_BASE_URLS as url, idx}
 						<div class="flex gap-1.5">
 							<input
 								class="w-full rounded-lg py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-850 outline-none"
-								placeholder={$_("placeholder.enterURL") + " (e.g. http://localhost:11434)"}
+								placeholder="Enter URL (e.g. http://localhost:11434)"
 								bind:value={url}
 							/>
 
@@ -234,13 +233,13 @@
 			</div>
 
 			<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
-				{$_("message.troubleAccessingOllama")}?
+				Trouble accessing Ollama?
 				<a
 					class=" text-gray-300 font-medium"
 					href="https://github.com/open-webui/open-webui#troubleshooting"
 					target="_blank"
 				>
-					{$_("btn.clickhereForHelp")}
+					Click here for help.
 				</a>
 			</div>
 		</div>
@@ -251,7 +250,7 @@
 			class="  px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-gray-100 transition rounded-lg"
 			type="submit"
 		>
-			{$_("btn.saveModel")}
+			Save
 		</button>
 	</div>
 </form>
