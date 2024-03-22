@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { downloadDatabase } from '$lib/apis/utils';
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 
 	export let saveHandler: Function;
 
@@ -17,7 +18,7 @@
 >
 	<div class=" space-y-3 pr-1.5 overflow-y-scroll max-h-80">
 		<div>
-			<div class=" mb-2 text-sm font-medium">Database</div>
+			<div class=" mb-2 text-sm font-medium">{$_("btn.database")}</div>
 
 			<div class="  flex w-full justify-between">
 				<!-- <div class=" self-center text-xs font-medium">Allow Chat Deletion</div> -->
@@ -46,7 +47,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center text-sm font-medium">Download Database</div>
+					<div class=" self-center text-sm font-medium">{$_("btn.download") + ' ' + $_("btn.database")}</div>
 				</button>
 			</div>
 		</div>

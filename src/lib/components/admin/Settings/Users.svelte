@@ -40,10 +40,10 @@
 >
 	<div class=" space-y-3 pr-1.5 overflow-y-scroll max-h-80">
 		<div>
-			<div class=" mb-2 text-sm font-medium">User Permissions</div>
+			<div class=" mb-2 text-sm font-medium">{$_("adminComponents.userPermissions")}</div>
 
 			<div class="  flex w-full justify-between">
-				<div class=" self-center text-xs font-medium">Allow Chat Deletion</div>
+				<div class=" self-center text-xs font-medium">{$_("adminComponents.allowDeletion")}</div>
 
 				<button
 					class="p-1 px-3 text-xs flex rounded transition"
@@ -63,7 +63,7 @@
 								d="M11.5 1A3.5 3.5 0 0 0 8 4.5V7H2.5A1.5 1.5 0 0 0 1 8.5v5A1.5 1.5 0 0 0 2.5 15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 9.5 7V4.5a2 2 0 1 1 4 0v1.75a.75.75 0 0 0 1.5 0V4.5A3.5 3.5 0 0 0 11.5 1Z"
 							/>
 						</svg>
-						<span class="ml-2 self-center">Allow</span>
+						<span class="ml-2 self-center">｛$_("btn.allow")｝</span>
 					{:else}
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@
 							/>
 						</svg>
 
-						<span class="ml-2 self-center">Don't Allow</span>
+						<span class="ml-2 self-center">{$_("btn.noAllow")}</span>
 					{/if}
 				</button>
 			</div>
@@ -90,21 +90,21 @@
 			<div>
 				<div class="mb-2">
 					<div class="flex justify-between items-center text-xs">
-						<div class=" text-sm font-medium">Manage Models</div>
+						<div class=" text-sm font-medium">{$_('adminComponents.manageModels')}</div>
 					</div>
 				</div>
 
 				<div class=" space-y-3">
 					<div>
 						<div class="flex justify-between items-center text-xs">
-							<div class=" text-xs font-medium">Model Whitelisting</div>
+							<div class=" text-xs font-medium">{$_('adminComponents.modelWhitelisting')}</div>
 
 							<button
 								class=" text-xs font-medium text-gray-500"
 								type="button"
 								on:click={() => {
 									whitelistEnabled = !whitelistEnabled;
-								}}>{whitelistEnabled ? 'On' : 'Off'}</button
+								}}>{whitelistEnabled ? $_('btn.on') : $_('btn.off')}</button
 							>
 						</div>
 					</div>
@@ -175,7 +175,7 @@
 
 							<div class="flex justify-end items-center text-xs mt-1.5 text-right">
 								<div class=" text-xs font-medium">
-									{whitelistModels.length} Model(s) Whitelisted
+									{whitelistModels.length} {$_('adminComponents.modelWhitelisted')}
 								</div>
 							</div>
 						</div>
@@ -190,7 +190,7 @@
 			class=" px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-gray-100 transition rounded"
 			type="submit"
 		>
-			Save
+			{$_('btn.saveModel')}
 		</button>
 	</div>
 </form>

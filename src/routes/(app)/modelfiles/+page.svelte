@@ -83,7 +83,7 @@
 <div class="min-h-screen max-h-[100dvh] w-full flex justify-center dark:text-white">
 	<div class="flex flex-col justify-between w-full overflow-y-auto">
 		<div class="max-w-2xl mx-auto w-full px-3 md:px-0 my-10">
-			<div class=" text-2xl font-semibold mb-3">My Modelfiles</div>
+			<div class=" text-2xl font-semibold mb-3">{$_("modelfiles.myModelfiles")}</div>
 
 			<a class=" flex space-x-4 cursor-pointer w-full mb-2 px-3 py-2" href="/modelfiles/create">
 				<div class=" self-center w-10">
@@ -106,8 +106,8 @@
 				</div>
 
 				<div class=" self-center">
-					<div class=" font-bold">Create a modelfile</div>
-					<div class=" text-sm">Customize Ollama models for a specific purpose</div>
+					<div class=" font-bold">{$_("modelfiles.createModelfile")}</div>
+					<div class=" text-sm">{$_("modelfiles.curtomizeText")}</div>
 				</div>
 			</a>
 
@@ -272,7 +272,7 @@
 							modelfilesImportInputElement.click();
 						}}
 					>
-						<div class=" self-center mr-2 font-medium">Import Modelfiles</div>
+						<div class=" self-center mr-2 font-medium">{$_("modelfiles.importModelfiles")}</div>
 
 						<div class=" self-center">
 							<svg
@@ -296,7 +296,7 @@
 							saveModelfiles($modelfiles);
 						}}
 					>
-						<div class=" self-center mr-2 font-medium">Export Modelfiles</div>
+						<div class=" self-center mr-2 font-medium">{$_("modelfiles.exportModelfiles")}</div>
 
 						<div class=" self-center">
 							<svg
@@ -318,7 +318,7 @@
 				{#if localModelfiles.length > 0}
 					<div class="flex">
 						<div class=" self-center text-sm font-medium mr-4">
-							{localModelfiles.length} Local Modelfiles Detected
+							{localModelfiles.length} {$_("modelfiles.localModelfilesDetected")}
 						</div>
 
 						<div class="flex space-x-1">
@@ -337,7 +337,7 @@
 									await modelfiles.set(await getModelfiles(localStorage.token));
 								}}
 							>
-								<div class=" self-center mr-2 font-medium">Sync All</div>
+								<div class=" self-center mr-2 font-medium">{$_("modelfiles.syncAll")}</div>
 
 								<div class=" self-center">
 									<svg
@@ -415,8 +415,8 @@
 					</div>
 
 					<div class=" self-center">
-						<div class=" font-bold">Discover a modelfile</div>
-						<div class=" text-sm">Discover, download, and explore model presets</div>
+						<div class=" font-bold">{$_("modelfiles.discoverModelfile")}</div>
+						<div class=" text-sm">{$_("modelfiles.discoverText")}</div>
 					</div>
 				</a>
 			</div>

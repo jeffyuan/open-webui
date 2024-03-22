@@ -98,7 +98,7 @@
 
 	<div class=" py-0.5 w-full justify-between">
 		<div class="flex w-full justify-between">
-			<div class=" self-center text-xs font-medium">Mirostat</div>
+			<div class=" self-center text-xs font-medium">{$_("message.mirostat")}</div>
 
 			<button
 				class="p-1 px-3 text-xs flex rounded transition"
@@ -108,9 +108,9 @@
 				}}
 			>
 				{#if options.mirostat === ''}
-					<span class="ml-2 self-center"> Default </span>
+					<span class="ml-2 self-center"> {$_("btn.default")} </span>
 				{:else}
-					<span class="ml-2 self-center"> Custom </span>
+					<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 				{/if}
 			</button>
 		</div>
@@ -154,9 +154,9 @@
 				}}
 			>
 				{#if options.mirostat_eta === ''}
-					<span class="ml-2 self-center"> Default </span>
+					<span class="ml-2 self-center"> {$_("btn.default")} </span>
 				{:else}
-					<span class="ml-2 self-center"> Custom </span>
+					<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 				{/if}
 			</button>
 		</div>
@@ -200,9 +200,9 @@
 				}}
 			>
 				{#if options.mirostat_tau === ''}
-					<span class="ml-2 self-center"> Default </span>
+					<span class="ml-2 self-center"> {$_("btn.default")} </span>
 				{:else}
-					<span class="ml-2 self-center"> Custom </span>
+					<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 				{/if}
 			</button>
 		</div>
@@ -246,9 +246,9 @@
 				}}
 			>
 				{#if options.top_k === ''}
-					<span class="ml-2 self-center"> Default </span>
+					<span class="ml-2 self-center"> {$_("btn.default")} </span>
 				{:else}
-					<span class="ml-2 self-center"> Custom </span>
+					<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 				{/if}
 			</button>
 		</div>
@@ -292,9 +292,9 @@
 				}}
 			>
 				{#if options.top_p === ''}
-					<span class="ml-2 self-center"> Default </span>
+					<span class="ml-2 self-center"> {$_("btn.default")} </span>
 				{:else}
-					<span class="ml-2 self-center"> Custom </span>
+					<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 				{/if}
 			</button>
 		</div>
@@ -338,9 +338,9 @@
 				}}
 			>
 				{#if options.repeat_penalty === ''}
-					<span class="ml-2 self-center"> Default </span>
+					<span class="ml-2 self-center"> {$_("btn.default")} </span>
 				{:else}
-					<span class="ml-2 self-center"> Custom </span>
+					<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 				{/if}
 			</button>
 		</div>
@@ -384,9 +384,9 @@
 				}}
 			>
 				{#if options.repeat_last_n === ''}
-					<span class="ml-2 self-center"> Default </span>
+					<span class="ml-2 self-center"> {$_("btn.default")} </span>
 				{:else}
-					<span class="ml-2 self-center"> Custom </span>
+					<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 				{/if}
 			</button>
 		</div>
@@ -430,9 +430,9 @@
 				}}
 			>
 				{#if options.tfs_z === ''}
-					<span class="ml-2 self-center"> Default </span>
+					<span class="ml-2 self-center"> {$_("btn.default")} </span>
 				{:else}
-					<span class="ml-2 self-center"> Custom </span>
+					<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 				{/if}
 			</button>
 		</div>
@@ -476,9 +476,9 @@
 				}}
 			>
 				{#if options.num_ctx === ''}
-					<span class="ml-2 self-center"> Default </span>
+					<span class="ml-2 self-center"> {$_("btn.default")} </span>
 				{:else}
-					<span class="ml-2 self-center"> Custom </span>
+					<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 				{/if}
 			</button>
 		</div>
@@ -521,9 +521,9 @@
 				}}
 			>
 				{#if options.num_predict === ''}
-					<span class="ml-2 self-center"> Default </span>
+					<span class="ml-2 self-center"> {$_("btn.default")} </span>
 				{:else}
-					<span class="ml-2 self-center"> Custom </span>
+					<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 				{/if}
 			</button>
 		</div>

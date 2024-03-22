@@ -9,6 +9,7 @@
 	import { onMount, tick } from 'svelte';
 	import { createModel } from '$lib/apis/ollama';
 	import { createNewModelfile, getModelfileByTagName, getModelfiles } from '$lib/apis/modelfiles';
+	import { _ } from "svelte-i18n";
 
 	let loading = false;
 
@@ -349,7 +350,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 				}}
 			/>
 
-			<div class=" text-2xl font-semibold mb-6">My Modelfiles</div>
+			<div class=" text-2xl font-semibold mb-6">{$_("modelfiles.myModelfiles")}</div>
 
 			<button
 				class="flex space-x-1"
@@ -371,7 +372,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 						/>
 					</svg>
 				</div>
-				<div class=" self-center font-medium text-sm">Back</div>
+				<div class=" self-center font-medium text-sm">{$_("prompts.back")}</div>
 			</button>
 			<hr class="my-3 dark:border-gray-700" />
 
@@ -418,12 +419,12 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 
 				<div class="my-2 flex space-x-2">
 					<div class="flex-1">
-						<div class=" text-sm font-semibold mb-2">Name*</div>
+						<div class=" text-sm font-semibold mb-2">{$_("label.name")}*</div>
 
 						<div>
 							<input
 								class="px-3 py-1.5 text-sm w-full bg-transparent border dark:border-gray-600 outline-none rounded-lg"
-								placeholder="Name your modelfile"
+								placeholder={$_("placeholder.modelfile")}
 								bind:value={title}
 								required
 							/>
@@ -431,12 +432,12 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 					</div>
 
 					<div class="flex-1">
-						<div class=" text-sm font-semibold mb-2">Model Tag Name*</div>
+						<div class=" text-sm font-semibold mb-2">{$_("label.modelTagName")}*</div>
 
 						<div>
 							<input
 								class="px-3 py-1.5 text-sm w-full bg-transparent border dark:border-gray-600 outline-none rounded-lg"
-								placeholder="Add a model tag name"
+								placeholder={$_("placeholder.modelTagName")}
 								bind:value={tagName}
 								required
 							/>
@@ -445,12 +446,12 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 				</div>
 
 				<div class="my-2">
-					<div class=" text-sm font-semibold mb-2">Description*</div>
+					<div class=" text-sm font-semibold mb-2">{$_("modelfiles.description")}*</div>
 
 					<div>
 						<input
 							class="px-3 py-1.5 text-sm w-full bg-transparent border dark:border-gray-600 outline-none rounded-lg"
-							placeholder="Add a short description about what this modelfile does"
+							placeholder={$_("modelfiles.addShortDescription")}
 							bind:value={desc}
 							required
 						/>
@@ -459,7 +460,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 
 				<div class="my-2">
 					<div class="flex w-full justify-between">
-						<div class=" self-center text-sm font-semibold">Modelfile</div>
+						<div class=" self-center text-sm font-semibold">{$_("modelfiles.modelfile")}</div>
 
 						<button
 							class="p-1 px-3 text-xs flex rounded transition"
@@ -469,9 +470,9 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 							}}
 						>
 							{#if raw}
-								<span class="ml-2 self-center"> Raw Format </span>
+								<span class="ml-2 self-center"> {$_("btn.rawFormat")} </span>
 							{:else}
-								<span class="ml-2 self-center"> Builder Mode </span>
+								<span class="ml-2 self-center"> {$_("btn.builderMode")} </span>
 							{/if}
 						</button>
 					</div>
@@ -480,7 +481,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 
 					{#if raw}
 						<div class="mt-2">
-							<div class=" text-xs font-semibold mb-2">Content*</div>
+							<div class=" text-xs font-semibold mb-2">{$_("modelfiles.content")}*</div>
 
 							<div>
 								<textarea
@@ -493,52 +494,52 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 							</div>
 
 							<div class="text-xs text-gray-400 dark:text-gray-500">
-								Not sure what to write? Switch to <button
+								{$_("modelfiles.switchTo")} <button
 									class="text-gray-500 dark:text-gray-300 font-medium cursor-pointer"
 									type="button"
 									on:click={() => {
 										raw = !raw;
-									}}>Builder Mode</button
+									}}>{$_("btn.builderMode")}</button
 								>
-								or
+								{$_("message.or")}
 								<a
 									class=" text-gray-500 dark:text-gray-300 font-medium"
 									href="https://openwebui.com"
 									target="_blank"
 								>
-									Click here to check other modelfiles.
+									{$_("modelfiles.clickCheckModelfiles")}
 								</a>
 							</div>
 						</div>
 					{:else}
 						<div class="my-2">
-							<div class=" text-xs font-semibold mb-2">From (Base Model)*</div>
+							<div class=" text-xs font-semibold mb-2">{$_("modelfiles.baseModel")}*</div>
 
 							<div>
 								<input
 									class="px-3 py-1.5 text-sm w-full bg-transparent border dark:border-gray-600 outline-none rounded-lg"
-									placeholder="Write a modelfile base model name (e.g. llama2, mistral)"
+									placeholder={$_("modelfiles.promptPlaceholder")}
 									bind:value={model}
 									required
 								/>
 							</div>
 
 							<div class="mt-1 text-xs text-gray-400 dark:text-gray-500">
-								To access the available model names for downloading, <a
+								{$_("modelfiles.accessToMessage")}, <a
 									class=" text-gray-500 dark:text-gray-300 font-medium"
 									href="https://ollama.com/library"
-									target="_blank">click here.</a
+									target="_blank">{$_("btn.clickHere")}.</a
 								>
 							</div>
 						</div>
 
 						<div class="my-1">
-							<div class=" text-xs font-semibold mb-2">System Prompt</div>
+							<div class=" text-xs font-semibold mb-2">{$_("modelfiles.systemPrompt")}</div>
 
 							<div>
 								<textarea
 									class="px-3 py-1.5 text-sm w-full bg-transparent border dark:border-gray-600 outline-none rounded-lg -mb-1"
-									placeholder={`Write your modelfile system prompt content here\ne.g.) You are Mario from Super Mario Bros, acting as an assistant.`}
+									placeholder={$_("modelfiles.modelfilesMessage")}
 									rows="4"
 									bind:value={system}
 								/>
@@ -546,7 +547,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 						</div>
 
 						<div class="flex w-full justify-between">
-							<div class=" self-center text-sm font-semibold">Modelfile Advanced Settings</div>
+							<div class=" self-center text-sm font-semibold">{$_("modelfiles.modelfileSettings")}</div>
 
 							<button
 								class="p-1 px-3 text-xs flex rounded transition"
@@ -556,21 +557,21 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 								}}
 							>
 								{#if advanced}
-									<span class="ml-2 self-center"> Custom </span>
+									<span class="ml-2 self-center"> {$_("btn.custom")} </span>
 								{:else}
-									<span class="ml-2 self-center"> Default </span>
+									<span class="ml-2 self-center"> {$_("btn.default")} </span>
 								{/if}
 							</button>
 						</div>
 
 						{#if advanced}
 							<div class="my-2">
-								<div class=" text-xs font-semibold mb-2">Template</div>
+								<div class=" text-xs font-semibold mb-2">{$_("message.template")}</div>
 
 								<div>
 									<textarea
 										class="px-3 py-1.5 text-sm w-full bg-transparent border dark:border-gray-600 outline-none rounded-lg -mb-1"
-										placeholder="Write your modelfile template content here"
+										placeholder={$_("modelfiles.templateContent")}
 										rows="4"
 										bind:value={template}
 									/>
@@ -578,7 +579,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 							</div>
 
 							<div class="my-2">
-								<div class=" text-xs font-semibold mb-2">Parameters</div>
+								<div class=" text-xs font-semibold mb-2">{$_("label.parameters")}</div>
 
 								<div>
 									<AdvancedParams bind:options />
@@ -590,7 +591,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 
 				<div class="my-2">
 					<div class="flex w-full justify-between mb-2">
-						<div class=" self-center text-sm font-semibold">Prompt suggestions</div>
+						<div class=" self-center text-sm font-semibold">{$_("modelfiles.promptSuggestions")}</div>
 
 						<button
 							class="p-1 px-3 text-xs flex rounded transition"
@@ -618,7 +619,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 							<div class=" flex border dark:border-gray-600 rounded-lg">
 								<input
 									class="px-3 py-1.5 text-sm w-full bg-transparent outline-none border-r dark:border-gray-600"
-									placeholder="Write a prompt suggestion (e.g. Who are you?)"
+									placeholder={$_("modelfiles.promptSuggestion")}
 									bind:value={prompt.content}
 								/>
 
@@ -647,7 +648,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 				</div>
 
 				<div class="my-2">
-					<div class=" text-sm font-semibold mb-2">Categories</div>
+					<div class=" text-sm font-semibold mb-2">{$_("label.categories")}</div>
 
 					<div class="grid grid-cols-4">
 						{#each Object.keys(categories) as category}
@@ -661,7 +662,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 
 				{#if pullProgress !== null}
 					<div class="my-2">
-						<div class=" text-sm font-semibold mb-2">Pull Progress</div>
+						<div class=" text-sm font-semibold mb-2">{$_("modelfiles.pullProgress")}</div>
 						<div class="w-full rounded-full dark:bg-gray-800">
 							<div
 								class="dark:bg-gray-600 bg-gray-500 text-xs font-medium text-gray-100 text-center p-0.5 leading-none rounded-full"
@@ -684,7 +685,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 						type="submit"
 						disabled={loading}
 					>
-						<div class=" self-center font-medium">Save & Create</div>
+						<div class=" self-center font-medium">{$_("btn.saveModel")} & {$_("btn.create")}</div>
 
 						{#if loading}
 							<div class="ml-1.5 self-center">

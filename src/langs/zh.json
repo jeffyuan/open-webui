@@ -18,6 +18,7 @@
         "seed": "开端",
         "stopSequence": "停止序列",
         "temperature": "温度",
+        "mirostat": "Mirostat",
         "version": "版本",
         "webUISettings": "用户界面设置",
         "theme": "主题",
@@ -96,7 +97,13 @@
         "ollamaVersion": "Ollama版本",
         "createdBy": "创建者",
         "adminPanel": "管理面板",
-        "playground": "活动场所"
+        "playground": "活动场所",
+        "and": "和",
+        "template": "模板",
+        "selected": "选中",
+        "createdAt": "创建于",
+        "eta": "预计到达时间",
+        "cIdMessage": "创建一个简洁的3-5字短语作为以下查询的标题，严格遵守3-5字的限制，避免使用“标题”一词：｛｛prompt｝｝"
     },
     "sidebar": {
         "search": "查找历史对话"
@@ -124,7 +131,12 @@
         "title": "标题",
         "subtitle": "副标题",
         "prompt": "提示词",
-        "selectVoice": "选择语音"
+        "selectVoice": "选择语音",
+        "modelfile": "命名模型文件",
+        "modelTagName": "添加模型标记名称",
+        "enter": "输入",
+        "user": "用户",
+        "assistant": "助手"
     },
     "btn": {
       "setDefaultModel": "设置为默认",
@@ -167,7 +179,21 @@
         "clickHereSelect": "单击此处选择",
         "clickhereForHelp": "单击此处获取帮助。",
         "additionalParams": "附加参数",
-        "checkUpdates": "检查更新"
+        "checkUpdates": "检查更新",
+        "create": "创建",
+        "rawFormat": "原始格式",
+        "builderMode": "生成器模式",
+        "update": "修改",
+        "all": "全部",
+        "submit": "提交",
+        "cancel": "取消",
+        "database": "数据库",
+        "download": "下载",
+        "enabled": "可以的",
+        "disabled": "不可以的",
+        "allow": "允许",
+        "noAllow": "不允许",
+        "addmessage": "添加消息"
     },
     "documents": {
         "title": "个人知识库",
@@ -176,7 +202,8 @@
         "help": "ⓘ 在提示输入中使用 “ # ” 加载并选择文档。",
         "searchDocument": "在这里输入搜索的文档",
         "inportMapping":"导入文档映射",
-        "exportMapping":"导出文档映射"
+        "exportMapping":"导出文档映射",
+        "dropFilesToDocuments": "将任何文件拖放到此处以添加到我的文档中"
     },
     "prompts": {
         "menuName":"助手中心",
@@ -186,16 +213,44 @@
         "exportPrompt":"导出助手",
         "promptCenter": "共享中心",
         "discoverPrompts": "发现助手",
-        "discoverPromptsDescp": "发现、下载和探索创建助手"
+        "discoverPromptsDescp": "发现、下载和探索创建助手",
+        "back": "返回",
+        "title": "标题",
+        "addShortTitle": "为此提示添加简短标题",
+        "command": "命令",
+        "shortSummary": "简短摘要",
+        "promptContent": "提示内容",
+        "formatVariables": "ⓘ 使用方括号设置变量格式，如下所示：",
+        "makeSure": "一定要把它们包起来",
+        "utilize": "利用",
+        "clipboardContent": "变量，将其替换为剪贴板内容。",
+        "variable": "变量",
+        "summaryWords": "写一篇50字的总结，总结[主题或关键词]",
+        "clipBoard": "剪贴板",
+        "only": "只有",
+        "alphanumeric": "字母数字字符和连字符",
+        "areAllowed": "被允许",
+        "activate": "通过键入激活此命令",
+        "toChatInput": "聊天输入。"
     },
     "error": {
-        "serverError": "哦！连接服务异常啦。"
+        "serverError": "哦！连接服务异常啦。",
+        "tryAgain": "哎呀！Ollama没有生成文本，请重试。",
+        "issueconnecting": "哦！连接到时出现问题 ",
+        "model": "模型",
+        "notFound": "未找到",
+        "cIdError": "哎呀！抓紧！您的文件仍在处理炉中。我们正在把它们煮得尽善尽美。请耐心等待，一旦他们准备好了，我们就会通知您。"
     },
     "label": {
         "email": "邮箱",
         "name": "姓名",
         "password": "密码",
-        "token": "JWT标志"
+        "token": "JWT标志",
+        "modelTagName": "型号标记名称",
+        "parameters": "参数",
+        "categories": "类别",
+        "system": "系统",
+        "newPassword": "新密码"
     },
     "alert": {
         "loginSuccess": "您现在已登录。",
@@ -204,7 +259,11 @@
         "connectError": "哦！与Ollama有关的问题。",
         "updateSuccess": "已成功更新。",
         "passwordError": "你输入的密码不太匹配。请仔细检查并重试。",
-        "serverConnectionVerified": "已验证服务器连接"
+        "serverConnectionVerified": "已验证服务器连接",
+        "chooseModelError": "保存前选择一个模型。。。",
+        "defaultModelUpdated": "已更新默认模型",
+        "modelNotSelected": "未选择型号",
+        "copyClipboard": "复制到剪贴板成功！"
     },
     "menu": {
         "modelfiles": "模型文件",
@@ -221,15 +280,76 @@
         "openAI": "开放AI",
         "currentModelOption": "当前模型",
         "default": "默认",
-        "whisper": "私密的"
+        "whisper": "私密的",
+        "pending": "待定",
+        "user": "普通用户",
+        "admin": "管理员"
     },
     "tooltip": {
-        "uploadFiles": "上传文件"
+        "uploadFiles": "上传文件",
+        "edit": "编辑",
+        "copy": "拷贝",
+        "goodResponse": "反应良好",
+        "badResponse": "错误的响应",
+        "readAloud": "大声朗读",
+        "generateImage": "生成图像",
+        "generationInfo": "生成信息",
+        "continueResponse": "继续响应",
+        "regenerate": "重新生成"
     },
     "table": {
         "role": "角色",
         "name": "姓名",
         "email": "邮箱",
         "action": "操作"
+    },
+    "modelfiles": {
+        "myModelfiles": "我的模型文件",
+        "createModelfile": "创建模型文件",
+        "curtomizeText": "为特定目的定制Ollama模型",
+        "importModelfiles": "导入模型文件",
+        "exportModelfiles": "导出模型文件",
+        "localModelfilesDetected": "检测到本地模型文件",
+        "syncAll": "全部同步处理",
+        "discoverModelfile": "发现模型文件",
+        "discoverText": "发现、下载和探索型号预设",
+        "description": "描述",
+        "modelfile": "模型文件",
+        "content": "所容纳之物",
+        "clickCheckModelfiles": "单击此处查看其他模型文件。",
+        "baseModel": "来自（基本模型）",
+        "systemPrompt": "系统提示",
+        "modelfileSettings": "模型文件高级设置",
+        "templateContent": "在此处编写模型文件模板内容",
+        "promptSuggestions": "提示性建议",
+        "pullProgress": "拉动进度",
+        "accessToMessage": "访问可供下载的型号名称",
+        "promptPlaceholder": "编写模型文件的基本模型名称（例如llama2、mistal）",
+        "promptSuggestion": "写一个提示性的建议（例如，你是谁？）",
+        "switchTo": "不知道该写什么？切换到",
+        "addShortDescription": "添加有关此模型文件功能的简短描述",
+        "modelfilesMessage": "在此处编写模型文件系统提示内容，例如你是《超级马里奥兄弟》中的马里奥，担任助理。"
+    },
+    "playground": {
+        "assistant": "你是个乐于助人的助手。",
+        "messageHere": "消息在此处。"
+    },
+    "adminComponents": {
+        "editUser": "编辑用户",
+        "adminSettings": "管理员设置",
+        "users": "用户",
+        "generalSettings": "整体设置",
+        "enableNewSignUps": "启用新注册",
+        "defaultUserRole": "默认用户角色",
+        "expiration": "JWT到期",
+        "validTimeUnits": "有效时间单位",
+        "noExpiration": "“s”、“m”、“h”、“d”、“w”或“-1”表示无过期。",
+        "userPermissions": "用户权限",
+        "allowDeletion": "允许删除聊天",
+        "modelWhitelisted": "列入白名单的型号",
+        "manageModels": "管理模型",
+        "modelWhitelisting": "模型白名单",
+        "allUsers": "全部用户",
+        "changeRole": "单击用户角色按钮更改用户的角色。"
     }
 }

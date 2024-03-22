@@ -172,7 +172,7 @@
 		console.log('submitPrompt', $chatId);
 
 		if (selectedModels.includes('')) {
-			toast.error('Model not selected');
+			toast.error($_("alert.modelNotSelected"));
 		} else if (messages.length != 0 && messages.at(-1).done != true) {
 			// Response not done
 			console.log('wait');
@@ -182,7 +182,7 @@
 		) {
 			// Upload not done
 			toast.error(
-				`Oops! Hold tight! Your files are still in the processing oven. We're cooking them up to perfection. Please be patient and we'll let you know once they're ready.`
+				$_("error.cIdError")
 			);
 		} else {
 			// Reset chat message textarea height
@@ -281,7 +281,7 @@
 						await sendPromptOllama(model, prompt, responseMessageId, _chatId);
 					}
 				} else {
-					toast.error(`Model ${modelId} not found`);
+					toast.error($_("error.model") + `${modelId}` + $_("error.notFound"));
 				}
 			})
 		);
@@ -415,8 +415,7 @@
 
 									if (responseMessage.content == '') {
 										responseMessage.error = true;
-										responseMessage.content =
-											'Oops! No text generated from Ollama, Please try again.';
+										responseMessage.content = $_('error.tryAgain')
 									}
 
 									responseMessage.context = data.context ?? null;
@@ -670,12 +669,12 @@
 					}
 				}
 			} else {
-				toast.error(`Uh-oh! There was an issue connecting to ${model}.`);
-				responseMessage.content = `Uh-oh! There was an issue connecting to ${model}.`;
+				toast.error($_("error.issueconnecting") + `${model}.`);
+				responseMessage.content = $_("error.issueconnecting") + `${model}.`;
 			}
 
 			responseMessage.error = true;
-			responseMessage.content = `Uh-oh! There was an issue connecting to ${model}.`;
+			responseMessage.content = $_("error.issueconnecting") + `${model}.`;
 			responseMessage.done = true;
 			messages = messages;
 		}
@@ -748,7 +747,7 @@
 			const title = await generateTitle(
 				localStorage.token,
 				$settings?.titleGenerationPrompt ??
-					"Create a concise, 3-5 word phrase as a header for the following query, strictly adhering to the 3-5 word limit and avoiding the use of the word 'title': {{prompt}}",
+					$_("message.cIdMessage"),
 				$settings?.titleAutoGenerateModel ?? selectedModels[0],
 				userPrompt
 			);

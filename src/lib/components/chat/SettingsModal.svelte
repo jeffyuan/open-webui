@@ -60,7 +60,7 @@
 <Modal bind:show>
 	<div>
 		<div class=" flex justify-between dark:text-gray-300 px-5 py-4">
-			<div class=" text-lg font-medium self-center">Settings</div>
+			<div class=" text-lg font-medium self-center">{$_("message.settings")}</div>
 			<button
 				class="self-center"
 				on:click={() => {

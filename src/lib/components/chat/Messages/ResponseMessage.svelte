@@ -24,6 +24,7 @@
 	import Image from '$lib/components/common/Image.svelte';
 	import { WEBUI_BASE_URL } from '$lib/constants';
 	import Tooltip from '$lib/components/common/Tooltip.svelte';
+	import { _ } from 'svelte-i18n';
 
 	export let modelfiles = [];
 	export let message;
@@ -360,7 +361,7 @@
 											editMessageConfirmHandler();
 										}}
 									>
-										Save
+										{$_('btn.saveModel')}
 									</button>
 
 									<button
@@ -369,7 +370,7 @@
 											cancelEditMessage();
 										}}
 									>
-										Cancel
+										{$_('btn.cancel')}
 									</button>
 								</div>
 							</div>
@@ -467,7 +468,7 @@
 											</div>
 										{/if}
 
-										<Tooltip content="Edit" placement="bottom">
+										<Tooltip content={$_("tooltip.edit")} placement="bottom">
 											<button
 												class="{isLastMessage
 													? 'visible'
@@ -493,7 +494,7 @@
 											</button>
 										</Tooltip>
 
-										<Tooltip content="Copy" placement="bottom">
+										<Tooltip content={$_("tooltip.copy")} placement="bottom">
 											<button
 												class="{isLastMessage
 													? 'visible'
@@ -519,7 +520,7 @@
 											</button>
 										</Tooltip>
 
-										<Tooltip content="Good Response" placement="bottom">
+										<Tooltip content={$_("tooltip.goodResponse")} placement="bottom">
 											<button
 												class="{isLastMessage
 													? 'visible'
@@ -546,7 +547,7 @@
 											</button>
 										</Tooltip>
 
-										<Tooltip content="Bad Response" placement="bottom">
+										<Tooltip content={$_("tooltip.badResponse")} placement="bottom">
 											<button
 												class="{isLastMessage
 													? 'visible'
@@ -573,7 +574,7 @@
 											</button>
 										</Tooltip>
 
-										<Tooltip content="Read Aloud" placement="bottom">
+										<Tooltip content={$_("tooltip.readAloud")} placement="bottom">
 											<button
 												id="speak-button-{message.id}"
 												class="{isLastMessage
@@ -655,7 +656,7 @@
 										</Tooltip>
 
 										{#if $config.images}
-											<Tooltip content="Generate Image" placement="bottom">
+											<Tooltip content={$_("tooltip.generateImage")} placement="bottom">
 												<button
 													class="{isLastMessage
 														? 'visible'
@@ -722,7 +723,7 @@
 										{/if}
 
 										{#if message.info}
-											<Tooltip content="Generation Info" placement="bottom">
+											<Tooltip content={$_("tooltip.generationInfo")} placement="bottom">
 												<button
 													class=" {isLastMessage
 														? 'visible'
@@ -751,7 +752,7 @@
 										{/if}
 
 										{#if isLastMessage}
-											<Tooltip content="Continue Response" placement="bottom">
+											<Tooltip content={$_("tooltip.continueResponse")} placement="bottom">
 												<button
 													type="button"
 													class="{isLastMessage
@@ -783,7 +784,7 @@
 												</button>
 											</Tooltip>
 
-											<Tooltip content="Regenerate" placement="bottom">
+											<Tooltip content={$_("tooltip.regenerate")} placement="bottom">
 												<button
 													type="button"
 													class="{isLastMessage

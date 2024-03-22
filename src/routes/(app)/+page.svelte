@@ -158,7 +158,7 @@
 		);
 
 		if (selectedModels.includes('')) {
-			toast.error('Model not selected');
+			toast.error($_("alert.modelNotSelected"));
 		} else if (messages.length != 0 && messages.at(-1).done != true) {
 			// Response not done
 			console.log('wait');

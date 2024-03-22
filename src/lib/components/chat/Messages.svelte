@@ -12,6 +12,7 @@
 	import Placeholder from './Messages/Placeholder.svelte';
 	import Spinner from '../common/Spinner.svelte';
 	import { imageGenerations } from '$lib/apis/images';
+	import { _ } from 'svelte-i18n';
 
 	export let chatId = '';
 	export let sendPrompt: Function;
@@ -67,7 +68,7 @@
 		navigator.clipboard.writeText(text).then(
 			function () {
 				console.log('Async: Copying to clipboard was successful!');
-				toast.success('Copying to clipboard was successful!');
+				toast.success($_("alert.copyClipboard"));
 			},
 			function (err) {
 				console.error('Async: Could not copy text: ', err);

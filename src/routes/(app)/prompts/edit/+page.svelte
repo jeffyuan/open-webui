@@ -98,7 +98,7 @@
 						/>
 					</svg>
 				</div>
-				<div class=" self-center font-medium text-sm">Back</div>
+				<div class=" self-center font-medium text-sm">{$_("prompts.back")}</div>
 			</button>
 			<hr class="my-3 dark:border-gray-700" />
 
@@ -109,12 +109,12 @@
 				}}
 			>
 				<div class="my-2">
-					<div class=" text-sm font-semibold mb-2">Title*</div>
+					<div class=" text-sm font-semibold mb-2">{$_("prompts.title")}*</div>
 
 					<div>
 						<input
 							class="px-3 py-1.5 text-sm w-full bg-transparent border dark:border-gray-600 outline-none rounded-lg"
-							placeholder="Add a short title for this prompt"
+							placeholder={$_("prompts.addShortTitle")}
 							bind:value={title}
 							required
 						/>
@@ -122,7 +122,7 @@
 				</div>
 
 				<div class="my-2">
-					<div class=" text-sm font-semibold mb-2">Command*</div>
+					<div class=" text-sm font-semibold mb-2">{$_("prompts.command")}*</div>
 
 					<div class="flex items-center mb-1">
 						<div
@@ -132,7 +132,7 @@
 						</div>
 						<input
 							class="px-3 py-1.5 text-sm w-full bg-transparent border disabled:text-gray-500 dark:border-gray-600 outline-none rounded-r-lg"
-							placeholder="short-summary"
+							placeholder={$_("modelfiles.shortSummary")}
 							bind:value={command}
 							disabled
 							required
@@ -140,27 +140,27 @@
 					</div>
 
 					<div class="text-xs text-gray-400 dark:text-gray-500">
-						Only <span class=" text-gray-600 dark:text-gray-300 font-medium"
-							>alphanumeric characters and hyphens</span
+						{$_("prompts.only")} <span class=" text-gray-600 dark:text-gray-300 font-medium"
+							>{$_("modelfiles.alphanumeric")}</span
 						>
-						are allowed; Activate this command by typing "<span
+						{$_("prompts.areAllowed")}; {$_("prompts.activate")} "<span
 							class=" text-gray-600 dark:text-gray-300 font-medium"
 						>
 							/{command}
-						</span>" to chat input.
+						</span>" {$_("prompts.toChatInput")}.
 					</div>
 				</div>
 
 				<div class="my-2">
 					<div class="flex w-full justify-between">
-						<div class=" self-center text-sm font-semibold">Prompt Content*</div>
+						<div class=" self-center text-sm font-semibold">{$_("prompts.promptContent")}*</div>
 					</div>
 
 					<div class="mt-2">
 						<div>
 							<textarea
 								class="px-3 py-1.5 text-sm w-full bg-transparent border dark:border-gray-600 outline-none rounded-lg"
-								placeholder={`Write a summary in 50 words that summarizes [topic or keyword].`}
+								placeholder={$_("prompts.summaryWords")}
 								rows="6"
 								bind:value={content}
 								required
@@ -168,12 +168,12 @@
 						</div>
 
 						<div class="text-xs text-gray-400 dark:text-gray-500">
-							Format your variables using square brackets like this: <span
+							{$_("prompts.formatVariables")}: <span
 								class=" text-gray-600 dark:text-gray-300 font-medium">[variable]</span
 							>
-							. Make sure to enclose them with
+							. {$_("prompts.makeSure")}
 							<span class=" text-gray-600 dark:text-gray-300 font-medium">'['</span>
-							and <span class=" text-gray-600 dark:text-gray-300 font-medium">']'</span> .
+							{$_("message.and")} <span class=" text-gray-600 dark:text-gray-300 font-medium">']'</span> .
 						</div>
 					</div>
 				</div>
@@ -186,7 +186,7 @@
 						type="submit"
 						disabled={loading}
 					>
-						<div class=" self-center font-medium">Save & Update</div>
+						<div class=" self-center font-medium">{$_("btn.saveModel")} & {$_("btn.update")}</div>
 
 						{#if loading}
 							<div class="ml-1.5 self-center">

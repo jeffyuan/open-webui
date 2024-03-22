@@ -11,7 +11,7 @@
 	const saveDefaultModel = async () => {
 		const hasEmptyModel = selectedModels.filter((it) => it === '');
 		if (hasEmptyModel.length) {
-			toast.error('Choose a model before saving...');
+			toast.error($_("alert.chooseModelError"));
 			return;
 		}
 		settings.set({ ...$settings, models: selectedModels });
@@ -21,7 +21,7 @@
 			console.log('setting default models globally');
 			await setDefaultModels(localStorage.token, selectedModels.join(','));
 		}
-		toast.success('Default model updated');
+		toast.success($_("alert.defaultModelUpdated"));
 	};
 
 	$: if (selectedModels.length > 0 && $models.length > 0) {

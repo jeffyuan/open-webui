@@ -11,6 +11,7 @@
 
 	import { createModel } from '$lib/apis/ollama';
 	import { getModelfiles, updateModelfileByTagName } from '$lib/apis/modelfiles';
+	import { _ } from "svelte-i18n";
 
 	import AdvancedParams from '$lib/components/chat/Settings/Advanced/AdvancedParams.svelte';
 
@@ -248,7 +249,7 @@
 				}}
 			/>
 
-			<div class=" text-2xl font-semibold mb-6">My Modelfiles</div>
+			<div class=" text-2xl font-semibold mb-6">{$_("modelfiles.myModelfiles")}</div>
 
 			<button
 				class="flex space-x-1"
@@ -270,7 +271,7 @@
 						/>
 					</svg>
 				</div>
-				<div class=" self-center font-medium text-sm">Back</div>
+				<div class=" self-center font-medium text-sm">{$_("prompts.back")}</div>
 			</button>
 			<hr class="my-3 dark:border-gray-700" />
 
@@ -317,12 +318,12 @@
 
 				<div class="my-2 flex space-x-2">
 					<div class="flex-1">
-						<div class=" text-sm font-semibold mb-2">Name*</div>
+						<div class=" text-sm font-semibold mb-2">{$_("label.name")}*</div>
 
 						<div>
 							<input
 								class="px-3 py-1.5 text-sm w-full bg-transparent border dark:border-gray-600 outline-none rounded-lg"
-								placeholder="Name your modelfile"
+								placeholder={$_("placeholder.modelfile")}
 								bind:value={title}
 								required
 							/>
@@ -330,12 +331,12 @@
 					</div>
 
 					<div class="flex-1">
-						<div class=" text-sm font-semibold mb-2">Model Tag Name*</div>
+						<div class=" text-sm font-semibold mb-2">{$_("placeholder.modelTagName")}*</div>
 
 						<div>
 							<input
 								class="px-3 py-1.5 text-sm w-full bg-transparent disabled:text-gray-500 border dark:border-gray-600 outline-none rounded-lg"
-								placeholder="Add a model tag name"
+								placeholder={$_("placeholder.modelTagName")}
 								value={tagName}
 								disabled
 								required
@@ -345,12 +346,12 @@
 				</div>
 
 				<div class="my-2">
-					<div class=" text-sm font-semibold mb-2">Description*</div>
+					<div class=" text-sm font-semibold mb-2">{$_("modelfiles.description")}*</div>
 
 					<div>
 						<input
 							class="px-3 py-1.5 text-sm w-full bg-transparent border dark:border-gray-600 outline-none rounded-lg"
-							placeholder="Add a short description about what this modelfile does"
+							placeholder={$_("modelfiles.addShortDescription")}
 							bind:value={desc}
 							required
 						/>
@@ -359,13 +360,13 @@
 
 				<div class="my-2">
 					<div class="flex w-full justify-between">
-						<div class=" self-center text-sm font-semibold">Modelfile</div>
+						<div class=" self-center text-sm font-semibold">{$_("modelfiles.modelfile")}</div>
 					</div>
 
 					<!-- <div class=" text-sm font-semibold mb-2"></div> -->
 
 					<div class="mt-2">
-						<div class=" text-xs font-semibold mb-2">Content*</div>
+						<div class=" text-xs font-semibold mb-2">{$_("modelfiles.content")}*</div>
 
 						<div>
 							<textarea
@@ -381,7 +382,7 @@
 
 				<div class="my-2">
 					<div class="flex w-full justify-between mb-2">
-						<div class=" self-center text-sm font-semibold">Prompt suggestions</div>
+						<div class=" self-center text-sm font-semibold">{$_("modelfiles.promptSuggestions")}</div>
 
 						<button
 							class="p-1 px-3 text-xs flex rounded transition"
@@ -409,7 +410,7 @@
 							<div class=" flex border dark:border-gray-600 rounded-lg">
 								<input
 									class="px-3 py-1.5 text-sm w-full bg-transparent outline-none border-r dark:border-gray-600"
-									placeholder="Write a prompt suggestion (e.g. Who are you?)"
+									placeholder={$_("modelfiles.promptSuggestion")}
 									bind:value={prompt.content}
 								/>
 

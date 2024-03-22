@@ -169,7 +169,7 @@
 				<div class="max-w-md">
 					<AddFilesPlaceholder>
 						<div class=" mt-2 text-center text-sm dark:text-gray-200 w-full">
-							Drop any files here to add to my documents
+							{$_("documents.dropFilesToDocuments")}
 						</div>
 					</AddFilesPlaceholder>
 				</div>
@@ -317,7 +317,7 @@
 								// await chats.set(await getChatListByTagName(localStorage.token, tag.name));
 							}}
 						>
-							<div class=" text-xs font-medium self-center line-clamp-1">all</div>
+							<div class=" text-xs font-medium self-center line-clamp-1">{$_("btn.all")}</div>
 						</button>
 
 						{#each tags as tag}
@@ -336,7 +336,7 @@
 					{:else}
 						<div class="flex-1 flex w-full justify-between items-center">
 							<div class="text-xs font-medium py-0.5 self-center mr-1">
-								{filteredDocs.filter((doc) => doc?.selected === 'checked').length} Selected
+								{filteredDocs.filter((doc) => doc?.selected === 'checked').length} {$_("message.selected")}
 							</div>
 
 							<div class="flex gap-1">
@@ -357,7 +357,7 @@
 										// await chats.set(await getChatListByTagName(localStorage.token, tag.name));
 									}}
 								>
-									<div class=" text-xs font-medium self-center line-clamp-1">delete</div>
+									<div class=" text-xs font-medium self-center line-clamp-1">{$_("btn.delete")}</div>
 								</button>
 							</div>
 						</div>

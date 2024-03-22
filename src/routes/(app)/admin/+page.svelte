@@ -11,6 +11,8 @@
 	import EditUserModal from '$lib/components/admin/EditUserModal.svelte';
 	import SettingsModal from '$lib/components/admin/SettingsModal.svelte';
 
+	import { _ } from 'svelte-i18n';
+
 	let loaded = false;
 	let users = [];
 
@@ -88,7 +90,7 @@
 					<div class=" flex flex-col justify-center">
 						<div class=" flex justify-between items-center">
 							<div class="flex items-center text-2xl font-semibold">
-								All Users
+								{$_("adminComponents.allUsers")}
 								<div class="flex self-center w-[1px] h-6 mx-2.5 bg-gray-200 dark:bg-gray-700" />
 								<span class="text-lg font-medium text-gray-500 dark:text-gray-300"
 									>{users.length}</span
@@ -115,12 +117,12 @@
 										/>
 									</svg>
 
-									<div class=" text-xs">Admin Settings</div>
+									<div class=" text-xs">{$_("adminComponents.adminSettings")}</div>
 								</button>
 							</div>
 						</div>
 						<div class=" text-gray-500 text-xs mt-1">
-							ⓘ Click on the user role button to change a user's role.
+							ⓘ {$_("adminComponents.changeRole")}
 						</div>
 
 						<hr class=" my-3 dark:border-gray-600" />
@@ -131,10 +133,10 @@
 									class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
 								>
 									<tr>
-										<th scope="col" class="px-3 py-2"> Role </th>
-										<th scope="col" class="px-3 py-2"> Name </th>
-										<th scope="col" class="px-3 py-2"> Email </th>
-										<th scope="col" class="px-3 py-2"> Action </th>
+										<th scope="col" class="px-3 py-2"> {$_("table.role")} </th>
+										<th scope="col" class="px-3 py-2"> {$_("table.name")} </th>
+										<th scope="col" class="px-3 py-2"> {$_("table.email")} </th>
+										<th scope="col" class="px-3 py-2"> {$_("table.action")} </th>
 									</tr>
 								</thead>
 								<tbody>

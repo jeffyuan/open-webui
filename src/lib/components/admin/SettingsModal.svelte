@@ -4,6 +4,7 @@
 
 	import General from './Settings/General.svelte';
 	import Users from './Settings/Users.svelte';
+	import { _ } from 'svelte-i18n';
 
 	export let show = false;
 
@@ -13,7 +14,7 @@
 <Modal bind:show>
 	<div>
 		<div class=" flex justify-between dark:text-gray-300 px-5 py-4">
-			<div class=" text-lg font-medium self-center">Admin Settings</div>
+			<div class=" text-lg font-medium self-center">{$_("adminComponents.adminSettings")}</div>
 			<button
 				class="self-center"
 				on:click={() => {
@@ -61,7 +62,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">General</div>
+					<div class=" self-center">{$_("btn.general")}</div>
 				</button>
 
 				<button
@@ -85,7 +86,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">Users</div>
+					<div class=" self-center">{$_("adminComponents.users")}</div>
 				</button>
 
 				<button
@@ -113,7 +114,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">Database</div>
+					<div class=" self-center">{$_("btn.database")}</div>
 				</button>
 			</div>
 			<div class="flex-1 md:min-h-[380px]">

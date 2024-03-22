@@ -96,7 +96,13 @@
         "ollamaVersion": "Ollama Version",
         "createdBy": "Created by",
         "adminPanel": "Admin Panel",
-        "playground": "Playground"
+        "playground": "Playground",
+        "and": "and",
+        "template": "Template",
+        "selected": "Selected",
+        "createdAt": "Created at",
+        "eta": "Eta",
+        "cIdMessage": "Create a concise, 3-5 word phrase as a header for the following query, strictly adhering to the 3-5 word limit and avoiding the use of the word 'title': {{prompt}}"
     },
     "sidebar": {
         "search": "Search"
@@ -125,7 +131,12 @@
         "selectMode": "Select a mode",
         "selectVoice": "Select a voice",
         "hello": "Hello",
-        "help": "How can I help you today?"
+        "help": "How can I help you today?",
+        "modelfile": "Name your modelfile",
+        "modelTagName": "Add a model tag name",
+        "enter": "Enter",
+        "user": "a user",
+        "assistant": "an assistant"
     },
     "placehoder": {
         "hello": "Hello",
@@ -171,13 +182,32 @@
         "clickHereSelect": "Click here to select",
         "clickhereForHelp": "Click here for help.",
         "additionalParams": "Additional Params",
-        "checkUpdates": "Check for updates"
+        "checkUpdates": "Check for updates",
+        "create": "Create",
+        "rawFormat": "Raw Format",
+        "builderMode": "Builder Mode",
+        "update": "Update",
+        "all": "all",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "database": "Database",
+        "download": "Download",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "allow": "Allow",
+        "noAllow": "Don't Allow",
+        "addmessage": "Add message"
     },
     "label": {
         "email": "Email",
         "name": "Name",
         "password": "Password",
-        "token": "JWT Token"
+        "token": "JWT Token",
+        "modelTagName": "Model Tag Name",
+        "parameters": "Parameters",
+        "categories": "Categories",
+        "system": "System",
+        "newPassword": "New Password"
     },
     "alert": {
         "loginSuccess": "You're now logged in.",
@@ -187,7 +217,11 @@
         "updateSuccess": "Successfully updated.",
         "passwordError": "The passwords you entered don't quite match. Please double-check and try again.",
         "serverConnectionVerified": "Server connection verified",
-        "openNewChat": "Open new chat"
+        "openNewChat": "Open new chat",
+        "chooseModelError": "Choose a model before saving...",
+        "defaultModelUpdated": "Default Model Updated",
+        "modelNotSelected": "Model not selected",
+        "copyClipboard": "Copying to clipboard was successful!"
     },
     "documents": {
         "title": "Documents",
@@ -196,7 +230,8 @@
         "help": "ⓘ Use '#' in the prompt input to load and select your documents.",
         "searchDocument": "Search Document",
         "inportMapping":"Import Documents Mapping",
-        "exportMapping":"Export Documents Mapping"
+        "exportMapping":"Export Documents Mapping",
+        "dropFilesToDocuments": "Drop any files here to add to my documents"
     },
     "prompts": {
         "menuName":"Prompts",
@@ -206,7 +241,25 @@
         "exportPrompt":"Export Prompts",
         "promptCenter": "Made by OpenWebUI Community",
         "discoverPrompts": "Discover a prompt",
-        "discoverPromptsDescp": "Discover, download, and explore custom prompts"
+        "discoverPromptsDescp": "Discover, download, and explore custom prompts",
+        "back": "Back",
+        "title": "Title",
+        "addShortTitle": "Add a short title for this prompt",
+        "command": "Command",
+        "shortSummary": "short-summary",
+        "promptContent": "Prompt Content",
+        "formatVariables": "ⓘ Format your variables using square brackets like this:",
+        "makeSure": "Make sure to enclose them with",
+        "utilize": "Utilize",
+        "clipboardContent": "variable to have them replaced with clipboard content.",
+        "variable": "variable",
+        "summaryWords": "Write a summary in 50 words that summarizes [topic or keyword]",
+        "clipBoard": "CLIPBOARD",
+        "only": "Only",
+        "alphanumeric": "alphanumeric characters and hyphens",
+        "areAllowed": "are allowed",
+        "activate": "Activate this command by typing",
+        "toChatInput": "to chat input."
     },
     "form": {
         "optionDark": "Dark",
@@ -217,10 +270,22 @@
         "openAI": "Open AI",
         "currentModelOption": "Current Model",
         "default": "Default",
-        "whisper": "Whisper"
+        "whisper": "Whisper",
+        "pending": "Pending",
+        "user": "User",
+        "admin": "Admin"
     },
     "tooltip": {
-        "uploadFiles": "Upload files"
+        "uploadFiles": "Upload files",
+        "edit": "Edit",
+        "copy": "Copy",
+        "goodResponse": "Good Response",
+        "badResponse": "Bad Response",
+        "readAloud": "Read Aloud",
+        "generateImage": "Generate Image",
+        "generationInfo": "Generation Info",
+        "continueResponse": "Continue Response",
+        "regenerate": "Regenerate"
     },
     "table": {
         "role": "Role",
@@ -234,6 +299,60 @@
         "documents": "Documents"
     },
     "error": {
-        "serverError": "Uh-oh! There was an issue connecting to Ollama."
+        "serverError": "Uh-oh! There was an issue connecting to Ollama.",
+        "tryAgain": "Oops! No text generated from Ollama, Please try again.",
+        "issueconnecting": "Uh-oh! There was an issue connecting to ",
+        "model": "Model",
+        "notFound": "not found",
+        "cIdError": "Oops! Hold tight! Your files are still in the processing oven. We're cooking them up to perfection. Please be patient and we'll let you know once they're ready."
+    },
+    "modelfiles": {
+        "myModelfiles": "My Modelfiles",
+        "createModelfile": "Create a modelfile",
+        "curtomizeText": "Customize Ollama models for a specific purpose",
+        "importModelfiles": "Import Modelfiles",
+        "exportModelfiles": "Export Modelfiles",
+        "localModelfilesDetected": "Local Modelfiles Detected",
+        "syncAll": "Sync All",
+        "discoverModelfile": "Discover a modelfile",
+        "discoverText": "Discover, download, and explore model presets",
+        "description": "Description",
+        "modelfile": "Modelfile",
+        "content": "Content",
+        "clickCheckModelfiles": "Click here to check other modelfiles.",
+        "baseModel": "From (Base Model)",
+        "systemPrompt": "System Prompt",
+        "modelfileSettings": "Modelfile Advanced Settings",
+        "templateContent": "Write your modelfile template content here",
+        "promptSuggestions": "Prompt suggestions",
+        "pullProgress": "Pull Progress",
+        "accessToMessage": "To access the available model names for downloading",
+        "promptPlaceholder": "Write a modelfile base model name (e.g. llama2, mistral)",
+        "promptSuggestion": "Write a prompt suggestion (e.g. Who are you?)",
+        "switchTo": "Not sure what to write? Switch to",
+        "addShortDescription": "Add a short description about what this modelfile does",
+        "modelfilesMessage": "Write your modelfile system prompt content here\ne.g.) You are Mario from Super Mario Bros, acting as an assistant."
+    },
+    "playground": {
+        "assistant.": "You're a helpful assistant.",
+        "messageHere": "message here"
+    },
+    "adminComponents": {
+        "editUser": "Edit User",
+        "adminSettings": "Admin Settings",
+        "users": "Users",
+        "generalSettings": "General Settings",
+        "enableNewSignUps": "Enable New Sign Ups",
+        "defaultUserRole": "Default User Role",
+        "expiration": "JWT Expiration",
+        "validTimeUnits": "Valid time units",
+        "noExpiration": "'s', 'm', 'h', 'd', 'w' or '-1' for no expiration.",
+        "userPermissions": "User Permissions",
+        "allowDeletion": "Allow Chat Deletion",
+        "modelWhitelisted": "Model(s) Whitelisted",
+        "manageModels": "Manage Models",
+        "modelWhitelisting": "Model Whitelisting",
+        "allUsers": "All Users",
+        "changeRole": "Click on the user role button to change a user's role."
     }
 }

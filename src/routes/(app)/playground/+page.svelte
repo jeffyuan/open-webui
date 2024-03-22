@@ -274,7 +274,7 @@
 				<div class="flex flex-col justify-between mb-2.5 gap-1">
 					<div class="flex justify-between items-center gap-2">
 						<div class=" text-2xl font-semibold self-center flex">
-							Playground <span class=" text-xs text-gray-500 self-center ml-1">(Beta)</span>
+							{$_("message.playground")} <span class=" text-xs text-gray-500 self-center ml-1">(Beta)</span>
 						</div>
 
 						<div>
@@ -365,12 +365,12 @@
 				{#if mode === 'chat'}
 					<div class="p-1">
 						<div class="p-3 outline outline-1 outline-gray-200 dark:outline-gray-800 rounded-lg">
-							<div class=" text-sm font-medium">System</div>
+							<div class=" text-sm font-medium">{$_("label.system")}</div>
 							<textarea
 								id="system-textarea"
 								class="w-full h-full bg-transparent resize-none outline-none text-sm"
 								bind:value={system}
-								placeholder="You're a helpful assistant."
+								placeholder={$_("playground.assistant")}
 								rows="4"
 							/>
 						</div>
@@ -390,7 +390,7 @@
 									bind:this={textCompletionAreaElement}
 									class="w-full h-full p-3 bg-transparent outline outline-1 outline-gray-200 dark:outline-gray-800 resize-none rounded-lg text-sm"
 									bind:value={text}
-									placeholder="You're a helpful assistant."
+									placeholder={$_("playground.assistant")}
 								/>
 							{:else if mode === 'chat'}
 								<ChatCompletion bind:messages />
@@ -407,7 +407,7 @@
 								submitHandler();
 							}}
 						>
-							Submit
+							{$_("btn.submit")}
 						</button>
 					{:else}
 						<button
@@ -416,7 +416,7 @@
 								stopResponse();
 							}}
 						>
-							Cancel
+							{$_("btn.cancel")}
 						</button>
 					{/if}
 				</div>

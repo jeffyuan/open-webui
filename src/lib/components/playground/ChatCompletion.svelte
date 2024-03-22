@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 
 	export let messages = [];
 	let textAreaElement: HTMLTextAreaElement;
@@ -28,7 +29,7 @@
 					id="{message.role}-{idx}-textarea"
 					bind:this={textAreaElement}
 					class="w-full bg-transparent outline-none rounded-lg p-2 text-sm resize-none overflow-hidden"
-					placeholder="Enter {message.role === 'user' ? 'a user' : 'an assistant'} message here"
+					placeholder={message.role === 'user' ? ($_("placeholder.enter") + ' ' + $_("placeholder.user") + ' ' + $_("playground.messageHere")) : ($_("placeholder.enter") + ' ' + $_("placeholder.assistant") + ' ' + $_("playground.messageHere"))}
 					rows="1"
 					on:input={(e) => {
 						textAreaElement.style.height = '';
@@ -100,6 +101,6 @@
 			</svg>
 		</div>
 
-		<div class=" text-sm font-medium">Add message</div>
+		<div class=" text-sm font-medium">{$_("btn.addmessage")}</div>
 	</button>
 </div>
