@@ -4,6 +4,8 @@
 	import { goto } from '$app/navigation';
 	import { Toaster, toast } from 'svelte-sonner';
 
+	import { page } from '$app/stores';
+
 	import { getBackendConfig } from '$lib/apis';
 	import { getSessionUser } from '$lib/apis/auths';
 
@@ -47,6 +49,12 @@
 			console.log(backendConfig);
 
 			if ($config) {
+				const url = $page.url;
+				const token = url.searchParams.get('token');
+				if (token && !localStorage.token) {
+					localStorage.token = token;
+				}
+
 				if (localStorage.token) {
 					// Get Session User Info
 					const sessionUser = await getSessionUser(localStorage.token).catch((error) => {
